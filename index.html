@@ -12,6 +12,7 @@
 <style amp-custom>
 
 :root {
+/* Color variables can be changed here */
   --body:     #FFFFFF;
   --header:   #FFFFFF;
   --banner:   #555555;
@@ -33,6 +34,7 @@
   --trans:    rgba(2, 2, 2, 0.5);
   --shade:    rgb(0,0,0,.2);
 
+/* Font variables can be changed here */
   --base:   arial,helvetica,sans-serif;
   --large:  arial,helvetica,sans-serif;
   --action: arial,helvetica,sans-serif;
@@ -41,6 +43,7 @@
   --sans:   arial,helvetica,sans-serif;
   --mono:   courier-new,courier,monospace;
 
+/* Background images can be changed, or fill color of inline SVGs elements can be altered here */
   --menuopen:  url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2248%22%20height%3D%2248%22%20viewBox%3D%220%200%2048%2048%22%3E%3Cpath%20fill%3D%22%23111111%22%20d%3D%22M6%2036h36v-4H6v4zm0-10h36v-4H6v4zm0-14v4h36v-4H6z%22%2F%3E%3C%2Fsvg%3E);
   --menuclose: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2248%22%20height%3D%2248%22%20viewBox%3D%220%200%2048%2048%22%3E%3Cpath%20fill%3D%22%23111111%22%20d%3D%22M38%2013l-3-3-11%2011-11-11-3%203%2011%2011-11%2011%203%203%2011-11%2011%2011%203-3-11-11z%22%2F%3E%3C%2Fsvg%3E);
   --downarrow: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2248%22%20height%3D%2248%22%20viewBox%3D%220%200%2048%2048%22%3E%3Cpath%20fill%3D%22%23111111%22%20d%3D%22M14.8%2015l9.2%209.6%209.2-9.7%204.3%204.3L24%2032.9%2010.5%2019.3z%22%2F%3E%3C%2Fsvg%3E);
@@ -210,6 +213,7 @@ h6:not([class]),h6[data-xx]{font-size:1.8rem;line-height:1.5;letter-spacing:0;te
 [data-txt=c]{text-align:center}
 [data-txt=j]{text-align:justify}
 
+/* This is specifically for a top-of-page banner directly under the nav. Can be left out for interior pages */
 div>h1:only-child{font-size:5.6rem;color:var(--headingcontrast);width:fit-content;background-color:var(--trans);padding:1rem;margin:auto;text-shadow:-1px -1px 0 var(--text),1px -1px 0 var(--text),-1px 1px 0 var(--text),1px 1px 0 var(--text)}
 section:nth-child(2){display:table;min-height:200px;background-color:var(--banner);background-image:var(--banner);background-size:cover;background-position:center;max-width:100%}
 section>div:first-of-type{display:table-cell;vertical-align:middle}
@@ -217,6 +221,7 @@ section>div:first-of-type{display:table-cell;vertical-align:middle}
 .amp-form-submit-success h2{display:none}
 .amp-form-submit-success p{display:none}
 
+/* Below are the only media queries for the framework, one for mobile one for explicit larger screens */
 @media (max-width:50rem){
 body{overflow-x:hidden}
 [data-btn][data-m-full],button:not([class])[data-m-full],button[data-xx][data-m-full],input[type=submit][data-m-full]{width:100%}
