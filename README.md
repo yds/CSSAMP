@@ -10,7 +10,7 @@ CSS AMP uses a simple process to get started:
 #### Easy mode:
 
 - [Download the latest release](https://github.com/longsien/BareCSS/releases/download/v1.1.0/BareCSS-v1.1.0.zip)
-- Link `bare.min.css` to your HTML file
+- Edit your HTML file into whatever kind of template you need, or create pages directly.
 
 ## What's included
 
