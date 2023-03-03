@@ -12,38 +12,33 @@
 <style amp-custom>
 
 :root {
-/* Color variables can be changed here */
-  --body:     #FFFFFF;
-  --header:   #FFFFFF;
-  --banner:   #555555;
-  --footer:   #303134;
-  --inset:    #F7F8F9;
-  --border:   #DCDDDE;
-  --button:   #FF8800;
-  --text:     #202124;
-  --heading:  #202124;
-  --link:     #1A0DAB;
-  --accent:   #DD2222;
+  --body:     #FFF;
+  --header:   #FFF;
+  --banner:   #555;
+  --footer:   #333;
+  --inset:    #EEE;
+  --border:   #DDD;
+  --button:   #F80;
+  --text:     #222;
+  --heading:  #222;
+  --link:     #44D;
+  --accent:   #D22;
 
-
-  --textcontrast:    #DDDDDD;
-  --headingcontrast: #DDDDDD;
-  --linkcontrast:    #8AB4F8;
-
+  --textcontrast:    #DDD;
+  --headingcontrast: #DDD;
+  --linkcontrast:    #44D;
 
   --trans:    rgba(2, 2, 2, 0.5);
   --shade:    rgb(0,0,0,.2);
 
-/* Font variables can be changed here */
-  --base:   arial,helvetica,sans-serif;
-  --large:  arial,helvetica,sans-serif;
-  --action: arial,helvetica,sans-serif;
+  --base:   helvetica-neue,helvetica,arial,sans-serif;
+  --large:  helvetica-neue,helvetica,arial,sans-serif;
+  --action: helvetica-neue,helvetica,arial,sans-serif;
   --code:   courier-new,courier,monospace;
   --serif:  times-new-roman,times,serif;
-  --sans:   arial,helvetica,sans-serif;
+  --sans:   helvetica-neue,helvetica,arial,sans-serif;
   --mono:   courier-new,courier,monospace;
 
-/* Background images can be changed, or fill color of inline SVGs elements can be altered here */
   --menuopen:  url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2248%22%20height%3D%2248%22%20viewBox%3D%220%200%2048%2048%22%3E%3Cpath%20fill%3D%22%23111111%22%20d%3D%22M6%2036h36v-4H6v4zm0-10h36v-4H6v4zm0-14v4h36v-4H6z%22%2F%3E%3C%2Fsvg%3E);
   --menuclose: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2248%22%20height%3D%2248%22%20viewBox%3D%220%200%2048%2048%22%3E%3Cpath%20fill%3D%22%23111111%22%20d%3D%22M38%2013l-3-3-11%2011-11-11-3%203%2011%2011-11%2011%203%203%2011-11%2011%2011%203-3-11-11z%22%2F%3E%3C%2Fsvg%3E);
   --downarrow: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2248%22%20height%3D%2248%22%20viewBox%3D%220%200%2048%2048%22%3E%3Cpath%20fill%3D%22%23111111%22%20d%3D%22M14.8%2015l9.2%209.6%209.2-9.7%204.3%204.3L24%2032.9%2010.5%2019.3z%22%2F%3E%3C%2Fsvg%3E);
@@ -78,7 +73,7 @@ figure:last-child{margin-bottom:0}
 figure>amp-img:not([class]),figure>amp-img[data-xx],figure>amp-img[class^=i-amp-],figure>amp-img[class^=-amp-]{width:calc(100% + 4rem);max-width:none;margin:0 0 2rem -2rem;display:block}
 figure>amp-img:not([class]):first-child,figure>amp-img[data-xx]:first-child,figure>amp-img[class^=i-amp-]:first-child,figure>amp-img[class^=-amp-]:first-child{margin:-2rem 0 2rem -2rem;border-top-left-radius:2px;border-top-right-radius:2px}
 figure>amp-img:not([class]):last-child,figure>amp-img[data-xx]:last-child,figure>amp-img[class^=i-amp-]:last-child,figure>amp-img[class^=-amp-]:last-child{margin:0 0 -2rem -2rem;border-bottom-left-radius:2px;border-bottom-right-radius:2px}
-code:not([class]),code[data-xx]{display:inline-block;vertical-align:.2rem;background:var(--inset);border:1px solid var(--border);padding:0 .5rem;color:var(--accent);font-size:1.2rem;line-height:1.8;font-family:'courier new',courier,monospace;border-radius:2px;font-family:var(--code);text-transform:none;font-weight:400}
+code:not([class]),code[data-xx]{display:inline-block;vertical-align:.2rem;background:var(--inset);border:1px solid var(--border);padding: .2rem .5rem 0 .5rem;color:var(--accent);font-size:1.2rem;line-height:1.8;font-family:'courier new',courier,monospace;border-radius:2px;font-family:var(--code);text-transform:none;font-weight:400}
 pre:not([class]) code,pre[data-xx] code{padding:2rem;border:none;border-left:4px solid var(--accent);border-radius:0;width:100%;display:block}
 footer{color:var(--textcontrast);font-family:var(--action);font-size:1.6rem;width:100%;max-width:90rem;margin:auto;padding:2rem;overflow:visible}
 footer a:not([class]), a[data-xx]{color:var(--linkcontrast);text-decoration:none}
@@ -132,19 +127,19 @@ ul:not([class]) ul,ul[data-xx] ul{list-style:circle}
 ol:not([class]),ol[data-xx]{list-style:decimal}
 ol:not([class]) ol,ol[data-xx] ol{list-style:lower-alpha}
 li:not([class]),li[data-xx],li{margin:0 0 1rem 0}
-nav:not([class]),nav[data-xx]{background:var(--header);position:fixed;top:0;left:0;right:0;z-index:11;color:var(--linkcontrast);padding:0 2rem;min-height:4.4rem}
+nav:not([class]),nav[data-xx]{background:var(--header);position:fixed;top:0;left:0;right:0;z-index:11;color:var(--linkcontrast);padding:0 2rem;min-height:4.4rem;box-shadow:rgb(0 0 0 / 40%) 0 0 10px 0}
 nav:not([class]) label,nav[data-xx] label{max-width:90rem;margin:auto;display:block}
 nav:not([class]) label>input,nav[data-xx] label>input{display:none}
 nav:not([class]) ul,nav[data-xx] ul{padding:0 2rem;margin:0;font-size:0;text-align:right}
 nav:not([class]) ul li,nav[data-xx] ul li{margin:0;display:inline-block;font-size:1.6rem;font-weight:bold;font-family:var(--action)}
 
-nav:not([class]) ul a,nav[data-xx] ul a{text-decoration:none;text-transform:none;padding:1rem 2rem .2rem;border-bottom:4px solid transparent;display:block;cursor:pointer;font-size:1.6rem;font-weight:bold;color:var(--link)}
+nav:not([class]) ul a,nav[data-xx] ul a{text-decoration:none;text-transform:none;padding:1rem 2rem .2rem;border-bottom:4px solid transparent;display:block;cursor:pointer;font-size:1.6rem;font-weight:bold;color:var(--text)}
 
 nav:not([class]) ul a:hover,nav[data-xx] ul a:hover{color:var(--linkcontrast);border-color:var(--linkcontrast)}
 nav:not([class]) ul li ul,nav[data-xx] ul li ul{padding:0;margin:0;background:var(--header);z-index:2;text-align:left;white-space:nowrap;min-width:100%}
 
-nav:not([class]) ul li ul li,nav[data-xx] ul li ul li{margin:0;display:block;border-left:4px solid var(--link)}
-nav:not([class]) ul li ul li:hover,nav[data-xx] ul li ul li:hover{border-color:var(--linkcontrast);color:var(--linkcontrast)}
+nav:not([class]) ul li ul li,nav[data-xx] ul li ul li{margin:0;display:block;border-left:4px solid var(--border)}
+nav:not([class]) ul li ul li:hover,nav[data-xx] ul li ul li:hover{border-color:var(--border);color:var(--border)}
 nav:not([class]) ul li ul li:hover a,nav[data-xx] ul li ul li:hover a{-webkit-transform:translate3d(.5rem,0,0);transform:translate3d(.5rem,0,0)}
 nav:not([class]) ul li ul li a,nav[data-xx] ul li ul li a{text-transform:none;padding:.5rem 2rem .5rem 1.6rem;border:none;font-size:1.6rem;font-weight:bold}
 
@@ -213,7 +208,6 @@ h6:not([class]),h6[data-xx]{font-size:1.8rem;line-height:1.5;letter-spacing:0;te
 [data-txt=c]{text-align:center}
 [data-txt=j]{text-align:justify}
 
-/* This is specifically for a top-of-page banner directly under the nav. Can be left out for interior pages */
 div>h1:only-child{font-size:5.6rem;color:var(--headingcontrast);width:fit-content;background-color:var(--trans);padding:1rem;margin:auto;text-shadow:-1px -1px 0 var(--text),1px -1px 0 var(--text),-1px 1px 0 var(--text),1px 1px 0 var(--text)}
 section:nth-child(2){display:table;min-height:200px;background-color:var(--banner);background-image:var(--banner);background-size:cover;background-position:center;max-width:100%}
 section>div:first-of-type{display:table-cell;vertical-align:middle}
@@ -221,7 +215,6 @@ section>div:first-of-type{display:table-cell;vertical-align:middle}
 .amp-form-submit-success h2{display:none}
 .amp-form-submit-success p{display:none}
 
-/* Below are the only media queries for the framework, one for mobile one for explicit larger screens */
 @media (max-width:50rem){
 body{overflow-x:hidden}
 [data-btn][data-m-full],button:not([class])[data-m-full],button[data-xx][data-m-full],input[type=submit][data-m-full]{width:100%}
@@ -1188,7 +1181,8 @@ Code line 3&#x3C;/code&#x3E;&#x3C;/pre&#x3E;
 <!-- code -------------------------------------------------------- -->
 <pre><code>&#x3C;!-- image at the top --&#x3E;
 &#x3C;figure&#x3E;
-&#x9;&#x3C;img src=&#x22;img/sign.jpg&#x22; alt=&#x22;sign&#x22;&#x3E;
+&#x9;&#x3C;amp-img data-xx src=&#x22;sign.jpg&#x22; width=&#x22;640&#x22; height=&#x22;427&#x22; layout=&#x22;responsive&#x22;&#x3E;
+&#x9;&#x3C;/amp-img&#x3E;
 
 &#x9;&#x3C;h5&#x3E;Title&#x3C;/h5&#x3E;
 
@@ -1211,7 +1205,8 @@ Code line 3&#x3C;/code&#x3E;&#x3C;/pre&#x3E;
 &#x3C;figure&#x3E;
 &#x9;&#x3C;h5&#x3E;Title&#x3C;/h5&#x3E;
 
-&#x9;&#x3C;img src=&#x22;img/sign.jpg&#x22; alt=&#x22;sign&#x22;&#x3E;
+&#x9;&#x3C;amp-img data-xx src=&#x22;sign.jpg&#x22; width=&#x22;640&#x22; height=&#x22;427&#x22; layout=&#x22;responsive&#x22;&#x3E;
+&#x9;&#x3C;/amp-img&#x3E;
 
 &#x9;&#x3C;p&#x3E;Content goes here&#x3C;/p&#x3E;
 &#x3C;/figure&#x3E;</code></pre>
@@ -1223,7 +1218,7 @@ Code line 3&#x3C;/code&#x3E;&#x3C;/pre&#x3E;
 			<figure>
 				<h5>Bottom image</h5>
 				<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
-				<amp-img src="https://theimgsrc.com/640x427/rainbow.jpg" width="640" height="427" layout="responsive"></amp-img>
+				<amp-img data-xx src="https://theimgsrc.com/640x427/rainbow.jpg" width="640" height="427" layout="responsive"></amp-img>
 			</figure>
 
 <!-- code -------------------------------------------------------- -->
@@ -1233,7 +1228,8 @@ Code line 3&#x3C;/code&#x3E;&#x3C;/pre&#x3E;
 
 &#x9;&#x3C;p&#x3E;Content goes here&#x3C;/p&#x3E;
 
-&#x9;&#x3C;img src=&#x22;img/sign.jpg&#x22; alt=&#x22;sign&#x22;&#x3E;
+&#x9;&#x3C;amp-img data-xx src=&#x22;sign.jpg&#x22; width=&#x22;640&#x22; height=&#x22;427&#x22; layout=&#x22;responsive&#x22;&#x3E;
+&#x9;&#x3C;/amp-img&#x3E;
 &#x3C;/figure&#x3E;
 </code></pre>
 <!-- /code -----------------------------------------------------// -->
@@ -1317,7 +1313,7 @@ Code line 3&#x3C;/code&#x3E;&#x3C;/pre&#x3E;
 	</table>
 
 <!-- code -------------------------------------------------------- -->
-<pre><code>#x3C;!-- margin top 2rem + margin bottom 4rem --&#x3E;
+<pre><code>&#x3C;!-- margin top 2rem + margin bottom 4rem --&#x3E;
 &#x3C;div data-mt=&#x22;2&#x22; data-mb=&#x22;4&#x22;&#x3E;&#x3C;/div&#x3E;
 
 &#x3C;!-- padding all 2rem --&#x3E;
@@ -1365,7 +1361,7 @@ Code line 3&#x3C;/code&#x3E;&#x3C;/pre&#x3E;
 
 <footer data-txt="r">
 <p>
-&copy;2020&nbsp;CSSAMP
+&copy;2023&nbsp;CSSAMP
 </p>
 </footer>
 </body>
