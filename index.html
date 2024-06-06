@@ -1,0 +1,1368 @@
+<!doctype html>
+<html amp lang="en">
+<head>
+<title>CSS AMP: Classless Framework for AMP HTML</title>
+<meta charset="utf-8">
+<link rel="canonical" href="https://cssamp.com/" />
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<script async src="https://cdn.ampproject.org/v0.js"></script>
+<script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+<script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+<style amp-custom>
+
+:root {
+  --body:     #FFF;
+  --header:   #FFF;
+  --banner:   #555;
+  --footer:   #333;
+  --inset:    #EEE;
+  --border:   #DDD;
+  --button:   #F80;
+  --text:     #222;
+  --heading:  #222;
+  --link:     #44D;
+  --accent:   #D22;
+
+  --textcontrast:    #DDD;
+  --headingcontrast: #DDD;
+  --linkcontrast:    #44D;
+
+  --trans:    rgba(2, 2, 2, 0.5);
+  --shade:    rgb(0,0,0,.2);
+
+  --base:   helvetica-neue,helvetica,arial,sans-serif;
+  --large:  helvetica-neue,helvetica,arial,sans-serif;
+  --action: helvetica-neue,helvetica,arial,sans-serif;
+  --code:   courier-new,courier,monospace;
+  --serif:  times-new-roman,times,serif;
+  --sans:   helvetica-neue,helvetica,arial,sans-serif;
+  --mono:   courier-new,courier,monospace;
+
+  --menuopen:    url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2248%22%20height%3D%2248%22%20viewBox%3D%220%200%2048%2048%22%3E%3Cpath%20fill%3D%22%23111111%22%20d%3D%22M6%2036h36v-4H6v4zm0-10h36v-4H6v4zm0-14v4h36v-4H6z%22%2F%3E%3C%2Fsvg%3E);
+  --menuclose:   url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2248%22%20height%3D%2248%22%20viewBox%3D%220%200%2048%2048%22%3E%3Cpath%20fill%3D%22%23111111%22%20d%3D%22M38%2013l-3-3-11%2011-11-11-3%203%2011%2011-11%2011%203%203%2011-11%2011%2011%203-3-11-11z%22%2F%3E%3C%2Fsvg%3E);
+  --downarrow:   url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2248%22%20height%3D%2248%22%20viewBox%3D%220%200%2048%2048%22%3E%3Cpath%20fill%3D%22%23111111%22%20d%3D%22M14.8%2015l9.2%209.6%209.2-9.7%204.3%204.3L24%2032.9%2010.5%2019.3z%22%2F%3E%3C%2Fsvg%3E);
+  --checkbox:    url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%23FFFFFF%22%20d%3D%22M9%2015l-4-4-3%202%207%208L23%207l-3-3z%22%2F%3E%3C%2Fsvg%3E);
+  --bannerimage: url('https://theimgsrc.com/1920x1080/rainbow.jpg');
+}
+
+html{font-family:arial,helvetica,sans-serif;font-family:var(--base);font-size:10px;box-sizing:border-box;-webkit-text-size-adjust:100%}
+*,:after,:before{box-sizing:inherit;position:relative}
+:focus{outline:0}
+body{color:var(--text);background-color:var(--body);margin:0;font-size:1.7rem;line-height:2.6rem;font-weight:400;padding-top:4.4rem}
+
+a{background-color:transparent}
+a:active,a:hover{outline:0}
+b,strong{font-weight:700}
+img,amp-img{border:0}
+h1,h2,h3,h4,h5,h6{margin:0 0 2rem;font-weight:400;font-family:var(--large);color:var(--heading)}
+::-moz-selection{background-color:var(--button);color:var(--textcontrast)}
+::selection{background-color:var(--button);color:var(--textcontrast)}
+a:not([class]),a[data-xx]{color:var(--link);text-decoration-color:var(--linkcontrast)}
+blockquote:not([class]),blockquote[data-xx]{margin:2rem 0;padding:1rem 2rem;border-left:4px solid var(--accent)}
+[data-btn],button:not([class]),button[data-xx],input[type=submit]{cursor:pointer;color:var(--link);display:inline-block;padding:1.5rem 2rem 1.3rem 2rem;background:var(--body);border:1px solid var(--link);border-radius:2px;box-shadow:0 0 0 transparent;text-transform:uppercase;text-decoration:none;text-align:center;font-size:1.6rem;font-family:var(--action);line-height:1rem;margin:0 1rem 1rem 0;-webkit-appearance:none;font-weight:700}
+[data-btn]:before,button:not([class]):before,button[data-xx]:before,input[type=submit]:before{content:"";position:absolute;z-index:-1;opacity:0;width:100%;height:100%;left:0;top:0;-webkit-transform:scale3d(1.2,1.2,1.2);transform:scale3d(1.2,1.2,1.2);background:var(--link)}
+[data-btn]:not(:disabled):hover,button:not([class]):not(:disabled):hover,button[data-xx]:not(:disabled):hover,input[type=submit]:not(:disabled):hover{box-shadow:2px 2px 4px var(--shade)}
+[data-btn]:not(:disabled):hover:active,button:not([class]):not(:disabled):hover:active,button[data-xx]:not(:disabled):hover:active,input[type=submit]:not(:disabled):hover:active{box-shadow:none;-webkit-transition:none;transition:none}
+[data-btn][data-primary],button:not([class])[data-primary],button[data-xx][data-primary],input[type=submit][data-primary]{border-color:var(--border);background:var(--button);color:var(--body)}
+[data-btn][data-round],button:not([class])[data-round],button[data-xx][data-round],input[type=submit][data-round]{border-radius:4rem}
+[data-btn].disabled,[data-btn]:disabled,button:not([class]).disabled,button:not([class]):disabled,button[data-xx].disabled,button[data-xx]:disabled,input[type=submit].disabled,input[type=submit]:disabled{border-color:var(--border);background:var(--border);color:var(--linkcontrast);cursor:default}
+figure{background:var(--body);display:block;padding:2rem;box-shadow:0 1px 4px 0 var(--shade);border-radius:2px;margin:0 0 2rem 0}
+figure hr:not([class]),figure hr[data-xx]{margin:1rem 0}
+figure:last-child{margin-bottom:0}
+figure>amp-img:not([class]),figure>amp-img[data-xx],figure>amp-img[class^=i-amp-],figure>amp-img[class^=-amp-]{width:calc(100% + 4rem);max-width:none;margin:0 0 2rem -2rem;display:block}
+figure>amp-img:not([class]):first-child,figure>amp-img[data-xx]:first-child,figure>amp-img[class^=i-amp-]:first-child,figure>amp-img[class^=-amp-]:first-child{margin:-2rem 0 2rem -2rem;border-top-left-radius:2px;border-top-right-radius:2px}
+figure>amp-img:not([class]):last-child,figure>amp-img[data-xx]:last-child,figure>amp-img[class^=i-amp-]:last-child,figure>amp-img[class^=-amp-]:last-child{margin:0 0 -2rem -2rem;border-bottom-left-radius:2px;border-bottom-right-radius:2px}
+code:not([class]),code[data-xx]{display:inline-block;vertical-align:.2rem;background:var(--inset);border:1px solid var(--border);padding: .2rem .5rem 0 .5rem;color:var(--accent);font-size:1.2rem;line-height:1.8;font-family:'courier new',courier,monospace;border-radius:2px;font-family:var(--code);text-transform:none;font-weight:400}
+pre:not([class]) code,pre[data-xx] code{padding:2rem;border:none;border-left:4px solid var(--accent);border-radius:0;width:100%;display:block}
+footer{color:var(--textcontrast);font-family:var(--action);font-size:1.6rem;width:100%;max-width:90rem;margin:auto;padding:2rem;overflow:visible}
+footer a:not([class]), a[data-xx]{color:var(--linkcontrast);text-decoration:none}
+footer:before{content:"";background:var(--footer);width:102vw;height:100%;position:absolute;left:50%;top:0;-webkit-transform:translate(-50%,0);transform:translate(-50%,0)}
+span{display:block;font-size:0;width:auto;margin:-1rem}
+span span:not(:first-child){margin:1rem -1rem 0}
+[data-col="1/12"]{width:8.33333333%}
+[data-col="2/12"],[data-col="1/6"]{width:16.66666667%}
+[data-col="3/12"],[data-col="1/4"]{width:25%}
+[data-col="4/12"],[data-col="2/6"],[data-col="1/3"]{width:33.33333333%}
+[data-col="5/12"]{width:41.66666667%}
+[data-col="6/12"],[data-col="3/6"],[data-col="2/4"],[data-col="1/2"]{width:50%}
+[data-col="7/12"]{width:58.33333333%}
+[data-col="8/12"],[data-col="4/6"],[data-col="2/3"]{width:66.66666667%}
+[data-col="9/12"],[data-col="3/4"]{width:75%}
+[data-col="10/12"],[data-col="5/6"]{width:83.33333333%}
+[data-col="11/12"]{width:91.66666667%}
+[data-col="1/1"]{width:100%}
+[data-col]{display:inline-block;font-size:1.7rem;padding:1rem;vertical-align:top}
+
+label:not([class]),label[data-xx]{display:inline-block;width:100%;text-transform:uppercase;font-size:1.4rem;font-weight:400;margin-top:1rem}
+label:not([class]):first-child,label[data-xx]:first-child{margin-top:0}
+input:not([type=radio]):not([type=checkbox]):not([type=button]):not([type=submit]):not([class]),input:not([type=radio]):not([type=checkbox]):not([type=button]):not([type=submit])[data-xx],input:not([type=radio]):not([type=checkbox]):not([type=button]):not([type=submit])[class^=user-]{display:inline-block;background:0 0;width:100%;padding:1rem;margin-bottom:2rem;border:1px solid var(--border);font-size:1.7rem;font-weight:400;border-radius:0}
+input:not([type=radio]):not([type=checkbox]):not([type=button]):not([type=submit]):not([class]):focus,input:not([type=radio]):not([type=checkbox]):not([type=button]):not([type=submit]):not([class]):hover,input:not([type=radio]):not([type=checkbox]):not([type=button]):not([type=submit])[data-xx]:focus,input:not([type=radio]):not([type=checkbox]):not([type=button]):not([type=submit])[data-xx]:hover,input:not([type=radio]):not([type=checkbox]):not([type=button]):not([type=submit])[class^=user-]:focus,input:not([type=radio]):not([type=checkbox]):not([type=button]):not([type=submit])[class^=user-]:hover{color:var(--button);border-color:var(--border);outline:0}
+textarea:not([class]),textarea[data-xx],textarea[class^=user-]{display:inline-block;background:0 0;width:100%;padding:.5rem 0 1rem;margin-bottom:2rem;border:none;border-bottom:1px solid var(--border);font-size:1.7rem;font-weight:400;border-radius:0;min-height:8rem;border-right:1px solid var(--border);padding-right:2rem;border-bottom-right-radius:.5rem}
+textarea:not([class]):focus,textarea:not([class]):hover,textarea[data-xx]:focus,textarea[data-xx]:hover,textarea[class^=user-]:focus,textarea[class^=user-]:hover{color:var(--button);border-color:var(--border);outline:0}
+select:not([class]),select[data-xx],select[class^=user-]{padding:.5rem 3rem .5rem 1rem;display:block;width:100%;border:1px solid var(--border);background:var(--body) var(--downarrow) no-repeat right 1rem center;background-size:2rem;border-radius:2px;height:4rem;font-size:1.7rem;font-weight:400;text-indent:.5rem;margin:.5rem 0 2rem;-webkit-appearance:none;-moz-appearance:none;appearance:none;cursor:pointer}
+select:not([class]):focus,select:not([class]):hover,select[data-xx]:focus,select[data-xx]:hover,select[class^=user-]:focus,select[class^=user-]:hover{border-color:var(--border);outline:0}
+input[type=checkbox]:not([class]),input[type=checkbox][data-xx],input[type=checkbox][class^=user-],input[type=radio]:not([class]),input[type=radio][data-xx],input[type=radio][class^=user-]{z-index:2;opacity:0;margin-right:-2rem;width:2rem;height:2rem;vertical-align:middle;cursor:pointer}
+input[type=checkbox]:not([class])+label,input[type=checkbox][data-xx]+label,input[type=checkbox][class^=user-]+label,input[type=radio]:not([class])+label,input[type=radio][data-xx]+label,input[type=radio][class^=user-]+label{width:auto;text-transform:none}
+input[type=checkbox]:not([class])+label:before,input[type=checkbox][data-xx]+label:before,input[type=checkbox][class^=user-]+label:before,input[type=radio]:not([class])+label:before,input[type=radio][data-xx]+label:before,input[type=radio][class^=user-]+label:before{content:"";display:inline-block;width:2rem;height:2rem;border:1px solid var(--border);background:var(--body);vertical-align:middle;margin-right:1rem}
+input[type=checkbox]:not([class])+label:after,input[type=checkbox][data-xx]+label:after,input[type=checkbox][class^=user-]+label:after,input[type=radio]:not([class])+label:after,input[type=radio][data-xx]+label:after,input[type=radio][class^=user-]+label:after{content:"";position:absolute;opacity:0;visibility:hidden;pointer-events:none;width:1.6rem;height:1.6rem;left:2px;top:4px;-webkit-transform:scale(0);transform:scale(0)}
+input[type=radio]:not([class])+label,input[type=radio][data-xx]+label,input[type=radio][class^=user-]+label{font-size:1.7rem;font-weight:400}
+input[type=radio]:not([class])+label:before,input[type=radio][data-xx]+label:before,input[type=radio][class^=user-]+label:before{border-radius:100%}
+input[type=radio]:not([class]):checked+label:before,input[type=radio][data-xx]:checked+label:before,input[type=radio][class^=user-]:checked+label:before{background:var(--button);border-color:var(--body)}
+input[type=radio]:not([class]):checked+label:after,input[type=radio][data-xx]:checked+label:after,input[type=radio][class^=user-]:checked+label:after{opacity:1;visibility:visible;background:var(--body);border:5px solid var(--button);border-radius:100%;-webkit-transform:scale(1);transform:scale(1);top:.5rem}
+input[type=checkbox]:not([class])+label,input[type=checkbox][data-xx]+label,input[type=checkbox][class^=user-]+label{font-size:1.7rem;font-weight:400}
+input[type=checkbox]:not([class])+label:before,input[type=checkbox][data-xx]+label:before,input[type=checkbox][class^=user-]+label:before{border-radius:2px}
+input[type=checkbox]:not([class])+label:after,input[type=checkbox][data-xx]+label:after,input[type=checkbox][class^=user-]+label:after{background:var(--checkbox) no-repeat center center;border-radius:100%;background-size:100%}
+input[type=checkbox]:not([class]):checked+label:before,input[type=checkbox][data-xx]:checked+label:before,input[type=checkbox][class^=user-]:checked+label:before{background:var(--button);border-color:var(--border)}
+input[type=checkbox]:not([class]):checked+label:after,input[type=checkbox][data-xx]:checked+label:after,input[type=checkbox][class^=user-]:checked+label:after{opacity:1;visibility:visible;left:2px;top:.5rem;-webkit-transform:scale(1);transform:scale(1)}
+amp-img:not([class]),amp-img[data-xx],amp-img[class^=i-amp-],amp-img[class^=-amp-]{height:auto;max-width:100%}
+section,article,main:not([class]),section,article,main[data-xx]{margin:auto;padding:2rem;width:100%;max-width:90rem}
+p:not([class]),p[data-xx]{margin:0 0 2rem}
+p:not([class]):last-child,p[data-xx]:last-child{margin:0}
+hr:not([class]),hr[data-xx]{background:var(--border);border:none;width:100%;height:1px;margin:4rem 0}
+ol:not([class]),ol[data-xx],ul:not([class]),ul[data-xx]{padding-left:2rem;margin:0 0 2rem}
+ol:not([class]) ol,ol:not([class]) ul,ol[data-xx] ol,ol[data-xx] ul,ul:not([class]) ol,ul:not([class]) ul,ul[data-xx] ol,ul[data-xx] ul{margin-bottom:0}
+ul:not([class]),ul[data-xx]{list-style:disc}
+ul:not([class]) ul,ul[data-xx] ul{list-style:circle}
+ol:not([class]),ol[data-xx]{list-style:decimal}
+ol:not([class]) ol,ol[data-xx] ol{list-style:lower-alpha}
+li:not([class]),li[data-xx],li{margin:0 0 1rem 0}
+nav:not([class]),nav[data-xx]{background:var(--header);position:fixed;top:0;left:0;right:0;z-index:11;color:var(--linkcontrast);padding:0 2rem;min-height:4.4rem;box-shadow:rgb(0 0 0 / 40%) 0 0 10px 0}
+nav:not([class]) label,nav[data-xx] label{max-width:90rem;margin:auto;display:block}
+nav:not([class]) label>input,nav[data-xx] label>input{display:none}
+nav:not([class]) ul,nav[data-xx] ul{padding:0 2rem;margin:0;font-size:0;text-align:right}
+nav:not([class]) ul li,nav[data-xx] ul li{margin:0;display:inline-block;font-size:1.6rem;font-weight:bold;font-family:var(--action)}
+
+nav:not([class]) ul a,nav[data-xx] ul a{text-decoration:none;text-transform:none;padding:1rem 2rem .2rem;border-bottom:4px solid transparent;display:block;cursor:pointer;font-size:1.6rem;font-weight:bold;color:var(--text)}
+
+nav:not([class]) ul a:hover,nav[data-xx] ul a:hover{color:var(--linkcontrast);border-color:var(--linkcontrast)}
+nav:not([class]) ul li ul,nav[data-xx] ul li ul{padding:0;margin:0;background:var(--header);z-index:2;text-align:left;white-space:nowrap;min-width:100%}
+
+nav:not([class]) ul li ul li,nav[data-xx] ul li ul li{margin:0;display:block;border-left:4px solid var(--border)}
+nav:not([class]) ul li ul li:hover,nav[data-xx] ul li ul li:hover{border-color:var(--border);color:var(--border)}
+nav:not([class]) ul li ul li:hover a,nav[data-xx] ul li ul li:hover a{-webkit-transform:translate3d(.5rem,0,0);transform:translate3d(.5rem,0,0)}
+nav:not([class]) ul li ul li a,nav[data-xx] ul li ul li a{text-transform:none;padding:.5rem 2rem .5rem 1.6rem;border:none;font-size:1.6rem;font-weight:bold}
+
+nav:not([class]) header:after,nav:not([class]) header:before,nav[data-xx] header:after,nav[data-xx] header:before{content:"";position:absolute;top:0;right:1rem;width:4.4rem;height:4.4rem;display:none;background-size:3rem;background-position:center center;background-repeat:no-repeat;fill:orange}
+
+nav:not([class]) header:before,nav[data-xx] header:before{background-image:var(--menuopen)}
+
+nav:not([class]) header:after,nav[data-xx] header:after{background-image:var(--menuclose);opacity:0;-webkit-transform:rotate(-180deg);transform:rotate(-180deg)}
+
+nav:not([class]) header a,nav[data-xx] header a{position:absolute;left:2rem;top:.7rem;bottom:.3rem;cursor:pointer;z-index:2;font-size:2.7rem;text-decoration:none}
+nav:not([class]) header a amp-img,nav[data-xx] header a amp-img{height:2rem;vertical-align:middle;top:-1px;margin-right:1rem}
+
+table:not([class]),table[data-xx]{width:100%;border-collapse:collapse;border-spacing:0;margin-bottom:2rem;text-align:left;overflow:hidden}
+table:not([class]) td,table:not([class]) th,table[data-xx] td,table[data-xx] th{border-bottom:2px solid var(--border);padding:1rem}
+table:not([class]) th,table[data-xx] th{font-weight:bold;color:var(--linkcontrast)}
+table:not([class]) th:before,table[data-xx] th:before{content:"";width:100%;height:10000%;position:absolute;display:block;top:0;left:0;background:var(--inset);z-index:-1;opacity:0;visibility:hidden}
+table:not([class]) th:hover:before,table[data-xx] th:hover:before{opacity:1;visibility:visible}
+table:not([class]) td,table[data-xx] td{border-bottom-width:1px}
+table:not([class]) tbody tr:hover,table[data-xx] tbody tr:hover{background:var(--inset)}
+mark{display:inline-block;font-size:1.4rem;border-bottom:1px solid var(--border);border-radius:1.5rem;background:var(--inset);color:var(--button);padding:.2rem 1.2rem;margin:0 .5rem .5rem 0}
+[data-att],[data-dtt]:disabled,[data-tt]{overflow:visible}
+[data-att]:after,[data-dtt]:disabled:after,[data-tt]:after{position:absolute;left:50%;top:0;opacity:0;visibility:hidden;pointer-events:none;z-index:2;background:var(--linkcontrast);border-radius:3px;color:var(--textcontrast);font-family:var(--base);font-size:1.4rem;line-height:2.5;font-weight:400;letter-spacing:0;white-space:nowrap;padding:0 1rem;-webkit-transform:translate(-50%,-95%);transform:translate(-50%,-95%);text-transform:none}
+[data-att]:hover:after,[data-dtt]:disabled:hover:after,[data-tt]:hover:after{opacity:.9;visibility:visible;-webkit-transform:translate(-50%,calc(-100% - 5px));transform:translate(-50%,calc(-100% - 5px))}
+[data-tt]:after{content:attr(data-tt)}
+[data-dtt]:disabled:after{content:attr(data-dtt)}
+[data-att]:after{content:attr(href)}
+:after,:before,a,button,input,ul,li,select,textarea,tr,ul{-webkit-transition:all .3s ease-in-out;transition:all .3s ease-in-out}
+h1:not([class]),h1[data-xx]{font-size:4.0rem;line-height:1;letter-spacing:-.1rem}
+h2:not([class]),h2[data-xx]{font-size:3.2rem;line-height:1.1;letter-spacing:-.05rem}
+h3:not([class]),h3[data-xx]{font-size:2.5rem;line-height:1.3;letter-spacing:-.05rem}
+h4:not([class]),h4[data-xx]{font-size:2rem;line-height:1.3;letter-spacing:-.05rem}
+h5:not([class]),h5[data-xx]{font-size:1.8rem;line-height:1.5;letter-spacing:0;text-transform:uppercase}
+h6:not([class]),h6[data-xx]{font-size:1.8rem;line-height:1.5;letter-spacing:0;text-transform:uppercase}
+[data-full]{width:100%}
+[data-hide]{display:none}
+[data-serif]{font-family:times-new-roman,times,serif;font-family:var(--serif)}
+[data-sans]{font-family:arial,helvetica,sans-serif;font-family:var(--sans)}
+[data-mono]{font-family:'courier new',courier,monospace;font-family:var(--mono)}
+[data-fs="xs"]{font-size:1.2rem}
+[data-fs="s"]{font-size:1.4rem}
+[data-fs="m"]{font-size:1.7rem}
+[data-fs="l"]{font-size:2.0rem}
+[data-fs="xl"]{font-size:2.4rem}
+[data-mt="0"]{margin-top:0}
+[data-mt="2"]{margin-top:2rem}
+[data-mt="4"]{margin-top:4rem}
+[data-mt="8"]{margin-top:8rem}
+[data-mb="0"]{margin-bottom:0}
+[data-mb="2"]{margin-bottom:2rem}
+[data-mb="4"]{margin-bottom:4rem}
+[data-mb="8"]{margin-bottom:8rem}
+[data-pt="0"]{padding-top:0}
+[data-pt="2"]{padding-top:2rem}
+[data-pt="4"]{padding-top:4rem}
+[data-pt="8"]{padding-top:8rem}
+[data-pb="0"]{padding-bottom:0}
+[data-pb="2"]{padding-bottom:2rem}
+[data-pb="4"]{padding-bottom:4rem}
+[data-pb="8"]{padding-bottom:8rem}
+[data-pa="0"]{padding:0}
+[data-pa="2"]{padding:2rem}
+[data-pa="4"]{padding:4rem}
+[data-pa="8"]{padding:8rem}
+[data-txt="l"]{text-align:left}
+[data-txt=r]{text-align:right}
+[data-txt=c]{text-align:center}
+[data-txt=j]{text-align:justify}
+
+div>h1:only-child{font-size:5.6rem;color:var(--headingcontrast);width:fit-content;background-color:var(--trans);padding:1rem;margin:auto;text-shadow:-1px -1px 0 var(--text),1px -1px 0 var(--text),-1px 1px 0 var(--text),1px 1px 0 var(--text)}
+section:nth-child(2){display:table;min-height:200px;background-color:var(--banner);background-image:var(--bannerimage);background-size:cover;background-position:center;max-width:100%}
+section>div:first-of-type{display:table-cell;vertical-align:middle}
+.amp-form-submit-success input{display:none}
+.amp-form-submit-success h2{display:none}
+.amp-form-submit-success p{display:none}
+
+@media (max-width:50rem){
+body{overflow-x:hidden}
+[data-btn][data-m-full],button:not([class])[data-m-full],button[data-xx][data-m-full],input[type=submit][data-m-full]{width:100%}
+[data-col]:not([data-fx]){width:100%}
+nav:not([class]),nav[data-xx]{position:fixed;padding:0;top:0;left:0;right:0}
+nav:not([class]) header,nav[data-xx] header{position:absolute;top:0;left:0;right:0;bottom:0}
+nav:not([class]) header:after,nav:not([class]) header:before,nav[data-xx] header:after,nav[data-xx] header:before{display:block}
+nav:not([class]) label,nav[data-xx] label{height:4.4rem}
+nav:not([class]) label>ul,nav[data-xx] label>ul{position:fixed;top:4.4rem;right:0;bottom:0;padding:0;-webkit-transform:translate3d(100%,0,0);transform:translate3d(100%,0,0);text-align:left;background:var(--header);border-top: 1px solid var(--border);box-shadow:0 1px 4px 0 var(--shade);overflow-x:visible;overflow-y:auto}
+nav:not([class]) label>ul li,nav[data-xx] label>ul li{display:block}
+nav:not([class]) label>ul a,nav[data-xx] label>ul a{padding:1rem 6rem 1rem 2rem;border:none}
+nav:not([class]) label input:checked~ul,nav[data-xx] label input:checked~ul{-webkit-transform:none;transform:none}
+nav:not([class]) label input:checked~header:before,nav[data-xx] label input:checked~header:before{-webkit-transform:rotate(180deg);transform:rotate(180deg);opacity:0}
+nav:not([class]) label input:checked~header:after,nav[data-xx] label input:checked~header:after{-webkit-transform:none;transform:none;opacity:1}
+nav:not([class]) label ul li ul li,nav[data-xx] label ul li ul li{border-color:var(--border)}
+nav:not([class]) label ul li ul a,nav[data-xx] label ul li ul a{padding-left:4rem}
+}
+
+@media (min-width:50.1rem){
+nav:not([class]) ul li:hover ul,nav:not([class]) ul ul:hover,nav[data-xx] ul li:hover ul,nav[data-xx] ul ul:hover{visibility:visible;opacity:1;-webkit-transform:translate3d(0,-1rem,0);transform:translate3d(0,-1rem,0);pointer-events:auto}
+nav:not([class]) ul a:not(:only-child),nav[data-xx] ul a:not(:only-child){background-image:var(--downarrow);background-repeat:no-repeat;background-position:right 1.5rem;background-size:2rem;padding-right:3rem}
+nav:not([class]) ul li ul,nav[data-xx] ul li ul{visibility:hidden;opacity:0;position:absolute;top:4.8rem;left:0;box-shadow:0 1px 4px 0 var(--shade);-webkit-transform:translate3d(0,-2rem,0);transform:translate3d(0,-2rem,0);pointer-events:none}
+}
+
+</style>
+</head>
+<body>
+<nav data-fx>
+<label>
+<input type="checkbox" aria-label="Nav Menu">
+<header>
+<a href="https://cssamp.com/" style="color:#cadff0;text-transform:none"><svg height="30" width="104" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 692.2 200"><path d="M631.7 50v80H651v-28h12c6.3 0 11.6-1.2 16-3.4s7.7-5.3 9.9-9.2c2.2-3.9 3.3-8.3 3.3-13.3a25 25 0 00-7.4-19c-5-4.7-12.3-7.1-21.8-7.1h-31.3zM651 65.6h9.9c7.7 0 11.6 3.5 11.6 10.5 0 6.9-3.9 10.3-11.6 10.3H651V65.6z" fill="#1a0dab"/><path d="M469.3 50.6L440 130h20.4l5-14.6h30l5 14.6h20.5l-29.3-79.4h-22.3zm11.1 20.7l10 29.4h-20l10-29.4z" fill="#1a0dab"/><path d="M618.3 50.6V130H599V80.3L581.8 130H565l-17.3-49.8V130h-19.3V50.6H552l21.6 55.3 21.2-55.3z" fill="#1a0dab"/><path d="M439.3 0H262l.2 2.3L278 178.6l.2 1.4 1.4.4L350 200h1.1l70.7-19.6 1.4-.4.2-1.5L439 2.3z" fill="#1a0dab"/><path d="M350.7 187.2l60.9-17 14-157.7h-75z" fill="#8ab4f8" /><path d="M348.7 23.7a65.8 65.8 0 100 131.6 65.8 65.8 0 000-131.6z" fill="#fff"/><path d="M348.7 23.7a65.8 65.8 0 102 131.6V23.7h-2z" fill="#ddd"/><path d="M353.7 49.5h5l-5 30h15.6a2.4 2.4 0 012 4l-27.6 46h-5l5-30H328a2.5 2.5 0 01-2.5-2.5c0-.6.5-1.6.5-1.6z" fill="#202124"/><path d="M0 50.2c25.9-.3 51.7-.1 77.6-.1 0 8 .1 16.1-.1 24.2l-53.8.1c0 11.8-.3 23.5-.2 35.3 18 0 36 .3 54 .2.1 6.6 0 13.3-.1 20-25.8-.2-51.6-.1-77.4-.1V50.2z" fill="#202124"/><path d="M86.8 50c26.2 0 52.3-.1 78.5.2V73c-19 0-38.1 0-57.2.2v9c19 .4 38 .4 57 .5.2 15.7.1 31.3.2 47l-78.5.1c-.2-6.3-.2-12.6 0-19h54.4c.2-4.1.2-8.2.2-12.3H86.7V50z" fill="#202124"/><path d="M174 50.2h78.5c0 7.7.2 15.4 0 23l-57.5.2.3 9.4c19 0 38 .2 57 .4.3 15.6.4 31.2.2 46.8h-78.6c-.2-6.3-.2-12.6 0-19 18.2.2 36.3.2 54.4 0l.1-12.2h-54.6l.3-48.6z" fill="#202124"/></svg></a>
+
+</header>
+
+<ul>
+<li><a href="#about">about</a></li>
+<li><a href="#change-log">changes</a></li>
+<li><a href="#install">installation</a></li>
+<li><a>help</a><ul>
+<li><a href="mailto:help@cssamp.com">email help@cssamp.com</a></li>
+</ul></li>
+</ul>
+</label>
+</nav>
+<section>
+<div>
+<h1 data-txt="c">Classless Framework for AMP HTML</h1>
+</div>
+</section>
+
+<!-- about -->
+
+<section data-xx id="about">
+	<div><h2>About CSS&#8203;AMP</h2></div>
+
+	<span>
+
+		<!-- what is it -->
+
+		<div data-col="1/4">
+			<h3>What is it?</h3>
+		</div>
+
+		<div data-col="3/4">
+			<p>CSS&#8203;AMP is a CSS only framework for AMP HTML that styles frequently used HTML tags without the need for classes. It also provides a few utilities such as a responsive grid and CSS-only tooltips.</p>
+			<p>CSS&#8203;AMP can be used stand-alone or as a foundation to build upon. This site you're viewing now uses CSS&#8203;AMP and is all you need to get started.</p>
+			<p>Compatible with all modern browsers and IE9+.</p>
+
+			<p>No download necessary. This page uses the latest CSSAMP version and is the template.</p>
+		</div>
+
+		<hr>
+
+		<!-- why does it exist? -->
+
+		<div data-col="1/4">
+			<h3>Why does it exist?</h3>
+		</div>
+
+		<div data-col="3/4">
+			<p>Sometimes you want to quickly set up a simple site or application. You don't want it to look like a Word&trade; doc but you also don't want/need a massive framework such as <a data-att href="http://getbootstrap.com" target="_blank">Bootstrap</a> or <a data-att href="http://foundation.zurb.com" target="_blank">Foundation</a> or <a data-att href="http://materializecss.com" target="_blank">Materialize</a>.</p>
+
+			<p>So in a similar vein as <a data-att href="http://purecss.io" target="_blank">Pure</a> and <a data-att href="http://getskeleton.com" target="_blank">Skeleton</a>, CSS&#8203;AMP aims to provide a minimal CSS framework that requires minimal setup.</p>
+
+			<p>CSS&#8203;AMP takes this minimal approach one step further by making it completely classless. Not only that, but the default styles are <em>only</em> applied to elements without classes. Why only bare tags? For custom components and modules, you may not want the standard stylings to apply, so by giving them a class you're removing all CSS&#8203;AMP styling. If you want to add a class and want the CSS&#8203;AMP styling applied, just add the <code>data-xx</code> attribute to that element.</p>
+		</div>
+
+		<hr>
+
+		<!-- how does it work? -->
+
+		<div data-col="1/4">
+			<h3>How does it work?</h3>
+		</div>
+
+		<div data-col="3/4">
+			<p>CSS&#8203;AMP effectively changes the default browser styles. Any commonly used tags such as <code data-xx>input</code> or <code data-xx>button</code> are styled <em>only</em> if they don't have any classes.</p>
+
+			<p>What if you want to add a class to a tag but still want to retain the CSS&#8203;AMP style? Just add the attribute <code>data-xx</code> to the tag and the CSS&#8203;AMP styles will be applied.</p>
+
+<!-- code -------------------------------------------------------- -->
+<pre><code>&#x3C;!-- want to style a button? --&#x3E;
+&#x3C;button&#x3E;Button&#x3C;/button&#x3E;
+
+&#x3C;!-- adding a class will remove the CSSAMP styling and use the default browser style --&#x3E;
+&#x3C;button class=&#x22;your-btn-class&#x22;&#x3E;Button&#x3C;/button&#x3E;
+
+&#x3C;!-- adding the attribute data-xx to a tag with a class will apply the CSSAMP styling --&#x3E;
+&#x3C;button data-xx class=&#x22;your-btn-class&#x22;&#x3E;Button&#x3C;/button&#x3E;
+</code></pre>
+<!-- /code -----------------------------------------------------// -->
+
+		</div>
+	</span>
+</section>
+
+<!-- change log -->
+
+<section id="change-log">
+	<div><h2>Change log</h2></div>
+
+	<span>
+		<div data-col="1/2">
+			<h3>v1.3.0</h3>
+		</div>
+
+		<div data-col="1/2">
+			<ul>
+				<li>
+					Added CSS variables for color and fonts, as well as a dark color scheme
+					<ul>
+						<li>Single location for page color configuration</li>
+						<li>Single location for page font configuration</li>
+						<li>Dark color scheme switch simply by prepended 'x' on variable names</li>
+						<li>Page banner section for photos or color</li>
+					</ul>
+			</ul>
+		</div>
+
+		<hr>
+
+		<div data-col="1/2">
+			<h3>v1.2.0</h3>
+		</div>
+
+		<div data-col="1/2">
+			<ul>
+				<li>
+					Updated to work with AMP
+					<ul>
+						<li>Grids now use span element</li>
+						<li>Tags now use the <code>mark</code> element</li>
+						<li>Cards now use figure element</li>
+						<li>Attributes all must be prepended with <code>data-</code> now to be AMP-compatible</li>
+						<li>Changed utility classes to attributes</li>
+            <li>The <code>a</code> anchor tag added <code>vertical-align:top</code> to maintain consistent placement</li>
+					</ul>
+			</ul>
+		</div>
+
+		<hr>
+
+		<div data-col="1/2">
+			<h3>v1.1.0</h3>
+		</div>
+
+		<div data-col="1/2">
+			<ul>
+				<li>
+					Removed all classes
+					<ul>
+						<li>Grids no longer use classes</li>
+						<li>Buttons no longer use classes</li>
+						<li>Cards no longer use classes</li>
+						<li>The <code>data-xx</code> default class has now been made an attribute</li>
+						<li>Changed utility classes to attributes</li>
+					</ul>
+				</li>
+				<li>Introduced tags</li>
+				<li>Introduced rounded buttons</li>
+				<li>
+					Changed tooltip behaviour and attribute
+					<ul>
+						<li>Instead of <code>data-tt</code> it's now just <code>data-tt</code></li>
+						<li>Anchor link tooltips now require the <code>data-att</code> attribute</li>
+					</ul>
+				</li>
+				<li>Introduced footer</li>
+				<li>Includes a template HTML file</li>
+			</ul>
+		</div>
+
+		<hr>
+
+		<div data-col="1/2">
+			<h3>v1.0.1</h3>
+		</div>
+
+		<div data-col="1/2">
+			<ul>
+				<li>Added navigation</li>
+				<li>Separated LESS files into components</li>
+				<li>Included SVG icons</li>
+			</ul>
+		</div>
+</section>
+
+<!-- install -->
+
+<section id="install">
+	<div><h2>How to install</h2></div>
+
+	<span>
+		<div data-col="1/2">
+			<p>Download this page from here until I get<a data-att href="https://github.com/morganmacarthur/CSSAMP" target="_blank">Github</a> situated.</p>
+
+			<p>Included in the page are the embedded SVG icon files from <a data-att href="https://design.google.com/icons" target="_blank">Google</a>, and the compiled CSS file.</p>
+
+		</div>
+
+	</span>
+
+</section>
+
+
+<!-- navigation
+-->
+
+<section id="navigation">
+	<div><h2>Navigation</h2></div>
+
+	<p>Getting a responsive nav bar with a hamburger menu for mobile without using any Javascript requires a bit of a hack. You need to follow the exact structure listed below for it to work properly.</p>
+
+	<p>This site uses the CSS&#8203;AMP nav so you can resize your browser window to see how it looks on desktop/mobile. This site uses the fixed nav bar so it's using the <code>data-fx</code> attribute to keep it fixed. Mobile nav is fixed by default.</p>
+
+<!-- code -------------------------------------------------------- -->
+<pre><code>&#x3C;!-- add the data-fx attribute to the nav if you want it fixed to the top --&#x3E;
+&#x3C;nav&#x3E;
+&#x9;&#x3C;!-- this label allows the checkbox to be activated by clicking anywhere in the nav --&#x3E;
+&#x9;&#x3C;label&#x3E;
+&#x9;&#x9;&#x3C;!-- checkbox required for responsiven menu --&#x3E;
+&#x9;&#x9;&#x3C;input type=&#x22;checkbox&#x22;&#x3E;
+
+&#x9;&#x9;&#x3C;!-- CSS&#8203;AMP will use the header to contain the hamburger menu --&#x3E;
+&#x9;&#x9;&#x3C;header&#x3E;
+&#x9;&#x9;&#x9;&#x3C;!-- you can leave this empty if you don&#x27;t want a title --&#x3E;
+&#x9;&#x9;&#x9;&#x3C;a&#x3E;Title&#x3C;/a&#x3E;
+&#x9;&#x9;&#x3C;/header&#x3E;
+
+&#x9;&#x9;&#x3C;!-- the main navigation items are anchor links within an unordered list --&#x3E;
+&#x9;&#x9;&#x3C;ul&#x3E;
+&#x9;&#x9;&#x9;&#x3C;li&#x3E;&#x3C;a href=&#x22;/&#x22;&#x3E;Home&#x3C;/a&#x3E;&#x3C;/li&#x3E;
+&#x9;&#x9;&#x9;&#x3C;li&#x3E;&#x3C;a href=&#x22;/&#x22;&#x3E;About&#x3C;/a&#x3E;&#x3C;/li&#x3E;
+&#x9;&#x9;&#x9;&#x3C;li&#x3E;
+&#x9;&#x9;&#x9;&#x9;&#x3C;a&#x3E;Dropdown&#x3C;/a&#x3E;
+
+&#x9;&#x9;&#x9;&#x9;&#x3C;!-- use &#x3C;ul&#x3E; and &#x3C;li&#x3E; within an &#x3C;li&#x3E; for dropdowns --&#x3E;
+&#x9;&#x9;&#x9;&#x9;&#x3C;ul&#x3E;
+&#x9;&#x9;&#x9;&#x9;&#x9;&#x3C;li&#x3E;&#x3C;a href=&#x22;#&#x22;&#x3E;Item one&#x3C;/a&#x3E;&#x3C;/li&#x3E;
+&#x9;&#x9;&#x9;&#x9;&#x9;&#x3C;li&#x3E;&#x3C;a href=&#x22;#&#x22;&#x3E;Item two&#x3C;/a&#x3E;&#x3C;/li&#x3E;
+&#x9;&#x9;&#x9;&#x9;&#x3C;/ul&#x3E;
+&#x9;&#x9;&#x9;&#x3C;/li&#x3E;
+&#x9;&#x9;&#x3C;/ul&#x3E;
+&#x9;&#x3C;/label&#x3E;
+&#x3C;/nav&#x3E;
+</code></pre>
+<!-- /code -----------------------------------------------------// -->
+
+</section>
+
+
+<!-- sections
+-->
+
+<section id="sections">
+	<div><h2>Sections</h2></div>
+
+	<p>This site that you're viewing right now is built on <code>section</code> elements. The sections are horizontally centered, have a <code>max-width</code> equal to 90rem, and will shrink with smaller screens. Useful for containing content quickly.</p>
+	<p><b>Note</b>: Because of CSS specificity, overwriting the default style with a class will require specifying that the class applies to a <code>section</code> element. <em>Eg: Your CSS property should look like <code>section.custom-section</code> rather than just <code>.custom-section</code>.</em></p>
+
+<!-- code -------------------------------------------------------- -->
+<pre><code>&#x3C;!-- use sections to quickly and easily contian content --&#x3E;
+&#x3C;section&#x3E;
+&#x9;Your code here.
+&#x3C;/section&#x3E;
+</code></pre>
+<!-- /code -----------------------------------------------------// -->
+
+</section>
+
+
+<!-- typography
+-->
+
+<section id="typography">
+	<div><h2>Typography</h2></div>
+
+	<span>
+		<div data-col="1/2">
+			<p>Font sizes in CSS&#8203;AMP are based in <code>rem</code>s. You can set the initial font size in the <code>html</code> element to change the scale. The default is <code>10px</code> so that 1rem is 10px and 2rem is 20px etc.</p>
+			<p>The font family defaults are just the standard browser defaults, so <code>data-serif</code>, <code>data-sans-serif</code> and <code>data-monospace</code> fonts are chosen by the browser. You can change this in the CSS font variablea.
+			<p>The main thing CSS&#8203;AMP does to headings is to standardise the margins and paddings. <code>h1</code> through to <code>h6</code> are taken care of.</p>
+		</div>
+
+		<div data-col="1/2">
+			<h1><code>h1</code> Heading level 1</h1>
+			<h2><code>h2</code> Heading level 2</h2>
+			<h3><code>h3</code> Heading level 3</h3>
+			<h4><code>h4</code> Heading level 4</h4>
+			<h5><code>h5</code> Heading level 5</h5>
+			<h6><code>h6</code> Heading level 6</h6>
+		</div>
+	</span>
+</section>
+
+
+<!-- buttons
+-->
+
+<section id="buttons">
+	<div><h2>Buttons</h2></div>
+
+	<p>Buttons default to the normal button style below. The primary button style uses the <code>primary</code> attribute. Disabled buttons are automatically styled if they have the <code>disabled</code> attribute.</p>
+
+	<p><button data-primary>Primary button</button><button>Default button</button><button disabled>Disabled button</button></p>
+
+<!-- code -------------------------------------------------------- -->
+<pre><code>&#x3C;!-- primary button --&#x3E;
+&#x3C;button data-primary&#x3E;Primary button&#x3C;/button&#x3E;
+
+&#x3C;!-- default button --&#x3E;
+&#x3C;button&#x3E;Default button&#x3C;/button&#x3E;
+
+&#x3C;!-- disabled button --&#x3E;
+&#x3C;button disabled&#x3E;Disabled button&#x3C;/button&#x3E;
+</code></pre>
+<!-- /code -----------------------------------------------------// -->
+
+	<hr>
+
+	<span>
+
+		<!-- anchor and submit buttons -->
+
+		<div data-col="1/3">
+			<h3>Anchor and submit buttons</h3>
+
+			<p>You can style anchor links by adding the <code>btn</code> attribute and <code>input type=submit</code> will automatically be styled like a button.</p>
+		</div>
+
+		<div data-col="2/3">
+			<p><a data-btn data-primary>Anchor link</a><input type="submit" value="Submit"></p>
+
+<!-- code -------------------------------------------------------- -->
+<pre><code>&#x3C;!-- anchor link button --&#x3E;
+&#x3C;a data-btn data-primary&#x3E;Anchor link&#x3C;/a&#x3E;
+
+&#x3C;!-- input submit button --&#x3E;
+&#x3C;input type=&#x22;submit&#x22; value=&#x22;Submit&#x22;&#x3E;
+</code></pre>
+<!-- /code -----------------------------------------------------// -->
+
+		</div>
+
+		<hr>
+
+
+		<!-- full width buttons -->
+
+		<div data-col="1/3">
+			<h3>Full width buttons</h3>
+
+			<p>If you want your buttons to be 100% width on mobile screens you can add the <code>data-m-full</code> attribute.</p>
+		</div>
+
+		<div data-col="2/3">
+			<p>These buttons will be full width on mobile screens.</p>
+
+			<p><button data-primary data-m-full>Primary button</button><button data-m-full>Default button</button><button disabled data-m-full>Disabled button</button></p>
+
+<!-- code -------------------------------------------------------- -->
+<pre><code>&#x3C;!-- primary button --&#x3E;
+&#x3C;button data-primary data-m-full&#x3E;Primary button&#x3C;/button&#x3E;
+
+&#x3C;!-- default button --&#x3E;
+&#x3C;button data-m-full&#x3E;Default button&#x3C;/button&#x3E;
+
+&#x3C;!-- disabled button --&#x3E;
+&#x3C;button data-m-full disabled&#x3E;Disabled button&#x3C;/button&#x3E;
+</code></pre>
+<!-- /code -----------------------------------------------------// -->
+
+		</div>
+
+		<hr>
+
+		<!-- rounded buttons -->
+
+		<div data-col="1/3">
+			<h3>Rounded buttons</h3>
+
+			<p>If you want your buttons to be rounded, use the <code>data-round</code> attribute.</p>
+		</div>
+
+		<div data-col="2/3">
+			<p><button data-round data-primary>Primary button</button><button data-round>Default button</button><button disabled data-round>Disabled button</button></p>
+
+<!-- code -------------------------------------------------------- -->
+<pre><code>&#x3C;!-- primary button --&#x3E;
+&#x3C;button data-primary data-round&#x3E;Primary button&#x3C;/button&#x3E;
+
+&#x3C;!-- default button --&#x3E;
+&#x3C;button data-round&#x3E;Default button&#x3C;/button&#x3E;
+
+&#x3C;!-- disabled button --&#x3E;
+&#x3C;button data-round disabled&#x3E;Disabled button&#x3C;/button&#x3E;
+</code></pre>
+<!-- /code -----------------------------------------------------// -->
+
+		</div>
+	</span>
+
+</section>
+
+
+<!-- tags
+-->
+
+<section id="tags">
+	<div><h2>Tags</h2></div>
+
+	<span>
+		<div data-col="1/2">
+			<p>Tags use the <code>mark</code> element.</p>
+		</div>
+
+		<div data-col="1/2">
+			<mark>One</mark>
+			<mark>Two</mark>
+			<mark>Three</mark>
+			<mark>Four</mark>
+			<mark>Five</mark>
+			<mark>Six</mark>
+			<mark>Seven</mark>
+			<mark>Eight</mark>
+			<mark>Nine</mark>
+			<mark>Ten</mark>
+			<mark>Eleven</mark>
+			<mark>Twelve</mark>
+		</div>
+	</span>
+
+<!-- code -------------------------------------------------------- -->
+<pre><code>&#x3C;!-- tags are inline block elements with margins --&#x3E;
+&#x3C;mark&#x3E;One&#x3C;/mark&#x3E;&#x3C;mark&#x3E;Two&#x3C;/mark&#x3E;&#x3C;mark&#x3E;Three&#x3C;/mark&#x3E;
+</code></pre>
+<!-- /code -----------------------------------------------------// -->
+
+</section>
+
+
+<!-- tooltips
+-->
+
+<section id="tooltips">
+	<div><h2>Tooltips</h2></div>
+
+	<p>Tooltips are handy and CSS&#8203;AMP provides you with classless, no javascript tooltips. Tooltips can be applied to most tags, as long as they accept the <code>::before</code> and <code>::after</code> pseudo elements. Just use <code>data-tt="Your tooltip here"</code> in the tag.</p>
+
+	<p>Hover over <b data-tt="Tooltip on a <b> tag">this</b> for a tooltip on a <code>b</code> tag. Hover over <code data-tt="Tooltip on a <code> tag">this</code>, or <a href="" data-tt="Tooltip on an anchor tag">this</a> or even <sup data-tt="Tooltip on a <sup> tag">this</sup> to see tooltips in action.</p>
+
+	<p><em>Note: These tooltips aren't clever so they will spill offscreen. You'll need some Javascript if you want dynamic positioning.</em></p>
+
+<!-- code -------------------------------------------------------- -->
+<pre><code>&#x3C;!-- inline element --&#x3E;
+&#x3C;b data-tt=&#x22;Tooltip&#x22;&#x3E;Tooltip&#x3C;/b&#x3E;
+
+&#x3C;!-- buttons --&#x3E;
+&#x3C;button data-primary data-tt=&#x22;Primary button with a tooltip&#x22;&#x3E;Primary button&#x3C;/button&#x3E;
+&#x3C;button data-tt=&#x22;Normal button with a tooltip&#x22;&#x3E;Normal button&#x3C;/button&#x3E;
+</code></pre>
+<!-- /code -----------------------------------------------------// -->
+
+	<hr>
+
+	<span>
+		<div data-col="1/2">
+			<h3>Disabled button tooltips</h3>
+
+			<p>If you want to tell your user why a button is disabled then you can use the <code>data-dtt</code> attribute to show a tooltip when a button is disabled. This is handy for things such as invalid or incomplete forms.</p>
+
+			<p>You can use both <code>data-tt</code> and <code>data-dtt</code> on the same element and the button <code>disabled</code> state will determine the tooltip shown.</p>
+		</div>
+
+		<div data-col="1/2">
+			<p>Enter some text to enable the disabled button.</p>
+
+<p>
+<form method="GET" action="/" target="_top" on="valid:AMP.setState({disable: false});invalid:AMP.setState({disable: true})" custom-validation-reporting="as-you-go">
+<label>Some Text</label>
+<input type="text" placeholder="Type anything" required>
+<button disabled data-primary data-m-full data-xx [disabled]="disable" data-tt="Not disabled" data-dtt="Disabled button tooltip">Disabled button</button>
+</form>
+</p>
+
+<!-- code -------------------------------------------------------- -->
+<pre><code>&#x3C;!-- disabled buttons --&#x3E;
+&#x3C;!-- note that you can have tooltips for enabled and disabled states --&#x3E;
+&#x3C;button disabled=&#x22;true&#x22; data-tt=&#x22;Not disabled&#x22; data-dtt=&#x22;Disabled&#x22;&#x3E;Disabled button&#x3C;/button&#x3E;
+</code></pre>
+<!-- /code -----------------------------------------------------// -->
+
+		</div>
+	</span>
+
+	<hr>
+
+	<span>
+		<div data-col="1/2">
+			<h3>Anchor link tooltip</h3>
+
+			<p>You can easily set a tooltip for an <a data-att href="https://github.com/morganmacarthur/CSSAMP">anchor link</a> that shows the <code>href</code> on hover just by adding the <code>data-att</code> attribute.</p>
+		</div>
+
+		<div data-col="1/2">
+
+<!-- code -------------------------------------------------------- -->
+<pre><code>&#x3C;!-- anchor link tooltips with the data-att attribute --&#x3E;
+&#x3C;a data-att href=&#x22;https://cssamp.com&#x22;&#x3E;CSSAMP&#x3C;/a&#x3E;
+</code></pre>
+<!-- /code -----------------------------------------------------// -->
+
+		</div>
+	</span>
+
+</section>
+
+
+<!-- forms
+-->
+
+<section id="forms">
+	<div><h2>Forms</h2></div>
+
+	<p>Nothing special here, replacing the often ugly browser defaults with some CSS&#8203;AMP style. Just note that you need to place the <code>label</code> tag directly after the <code>radio</code> and <code>checkbox</code> inputs. Text inputs and select boxes are default to 100% width as you'll most likely use them in a grid.</p>
+
+	<label>Text Input</label>
+	<input type="text" placeholder="text">
+
+	<label>Text Area</label>
+	<textarea placeholder="more text"></textarea>
+
+<!-- code -------------------------------------------------------- -->
+<pre><code>&#x3C;label&#x3E;Username&#x3C;/label&#x3E;
+&#x3C;input type=&#x22;text&#x22; placeholder=&#x22;username&#x22;&#x3E;
+
+&#x3C;label&#x3E;Password&#x3C;/label&#x3E;
+&#x3C;input type=&#x22;password&#x22; placeholder=&#x22;password&#x22;&#x3E;
+
+&#x3C;label&#x3E;Comment&#x3C;/label&#x3E;
+&#x3C;textarea placeholder=&#x22;comment&#x22;&#x3E;&#x3C;/textarea&#x3E;
+</code></pre>
+<!-- /code -----------------------------------------------------// -->
+
+	<select>
+		<option disabled selected>Select an option</option>
+		<option>Option One</option>
+		<option>Option Two</option>
+		<option>Option Three</option>
+	</select>
+
+	<span>
+		<div data-col="1/2" data-fx>
+			<p><input type="checkbox" id="checkbox-1"> <label for="checkbox-1">Checkbox 1</label><br><input type="checkbox" id="checkbox-2"> <label for="checkbox-2">Checkbox 2</label></p>
+		</div>
+
+		<div data-col="1/2" data-fx>
+			<p><input type="radio" name="radio" id="radio-1"> <label for="radio-1">Radio 1</label><br><input type="radio" name="radio" id="radio-2"> <label for="radio-2">Radio 2</label></p>
+		</div>
+	</span>
+
+<!-- code -------------------------------------------------------- -->
+<pre><code>&#x3C;!-- select and option --&#x3E;
+&#x3C;select&#x3E;
+&#x9;&#x3C;option disabled selected&#x3E;Select an option&#x3C;/option&#x3E;
+&#x9;&#x3C;option&#x3E;Option One&#x3C;/option&#x3E;
+&#x3C;/select&#x3E;
+
+&#x3C;!-- checkbox --&#x3E;
+&#x3C;input type=&#x22;checkbox&#x22; id=&#x22;checkbox-1&#x22;&#x3E; &#x3C;label for=&#x22;checkbox-1&#x22;&#x3E;Checkbox 1&#x3C;/label&#x3E;
+
+&#x3C;!-- radio --&#x3E;
+&#x3C;input type=&#x22;radio&#x22; name=&#x22;radio&#x22; id=&#x22;radio-1&#x22;&#x3E; &#x3C;label for=&#x22;radio-1&#x22;&#x3E;Radio 1&#x3C;/label&#x3E;&#x3C;br&#x3E;&#x3C;input type=&#x22;radio&#x22; name=&#x22;radio&#x22; id=&#x22;radio-2&#x22;&#x3E; &#x3C;label for=&#x22;radio-2&#x22;&#x3E;Radio 2&#x3C;/label&#x3E;
+</code></pre>
+<!-- /code -----------------------------------------------------// -->
+
+</section>
+
+
+<!-- code
+-->
+
+<section id="code">
+	<div><h2>Code</h2></div>
+
+	<p>The <code>code</code> tag functionality has been kept basic as you'll most likely be using something like <a href="http://prismjs.com">PrismJS</a> for syntax highlighting and code escaping.</p>
+
+	<p>Here is some <code>inline</code> code.</p>
+
+	<pre><code>if ( to_be || !to_be ) {
+  that = theQuestion;
+}</code></pre>
+
+<!-- code -------------------------------------------------------- -->
+<pre><code>&#x3C;!-- inline code --&#x3E;
+&#x3C;code&#x3E;code&#x3C;/code&#x3E;
+
+&#x3C;!-- pre code --&#x3E;
+&#x3C;pre&#x3E;&#x3C;code&#x3E;Code line 1
+Code line 2
+Code line 3&#x3C;/code&#x3E;&#x3C;/pre&#x3E;
+</code></pre>
+<!-- /code -----------------------------------------------------// -->
+
+</section>
+
+
+<!-- blockquote
+-->
+
+<section id="blockquote">
+	<div><h2>Blockquote</h2></div>
+
+	<blockquote>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam porttitor mauris.</p>
+		<p data-txt="r"><i>- Lorem Ipsum</i></p>
+	</blockquote>
+
+<!-- code -------------------------------------------------------- -->
+<pre><code>&#x3C;blockquote&#x3E;
+&#x9;&#x3C;p&#x3E;Quote goes here.&#x3C;/p&#x3E;
+
+&#x9;&#x3C;p data-txt=&#x22;r&#x22;&#x3E;
+&#x9;&#x9;&#x3C;i&#x3E;- Said Someone&#x3C;/i&#x3E;
+&#x9;&#x3C;/p&#x3E;
+&#x3C;/blockquote&#x3E;
+</code></pre>
+<!-- /code -----------------------------------------------------// -->
+
+</section>
+
+
+<!-- lists
+-->
+
+<section id="lists">
+	<div><h2>Lists</h2></div>
+
+	<p>As long as the <code>ul</code> or <code>ol</code> tag is classless or has the <code>data-xx</code> attribute the styles should apply to the child <code>li</code> elements too.</p>
+
+	<span>
+		<div data-col="1/2">
+			<ul>
+				<li>Unordered list item one</li>
+				<li>Unordered list item two</li>
+				<li>Unordered list item three with nest list:
+					<ul>
+						<li>Nested item one</li>
+						<li>Nested item two</li>
+					</ul>
+				</li>
+				<li>Unordered list item four</li>
+			</ul>
+		</div>
+
+		<div data-col="1/2">
+			<ol>
+				<li>Ordered list item one</li>
+				<li>Ordered list item two</li>
+				<li>Ordered list item three with nest list:
+					<ol>
+						<li>Nested item one</li>
+						<li>Nested item two</li>
+					</ol>
+				</li>
+				<li>Ordered list item four</li>
+			</ol>
+		</div>
+	</span>
+
+</section>
+
+
+<!-- table
+-->
+
+<section id="tables">
+	<div><h2>Tables</h2></div>
+
+	<p>The tables are just your standard <code>table</code> element with <code>thead</code>, <code>tbody</code>, <code>tr</code>, <code>th</code> and <code>td</code> elements within. As long as the <code>table</code> tag is classless or with the <code>data-xx</code> attribute, the styles should apply to the child elements.</p>
+
+	<p>When the user hovers over the head row, the relevant column will be highlighted. Any other row and the entire row will be highlighted.</p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Title one</th>
+				<th>Title two</th>
+				<th>Title three</th>
+				<th>Title four</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr>
+				<td>Row 1 col 1</td>
+				<td>Row 1 col 2</td>
+				<td>Row 1 col 3</td>
+				<td>Row 1 col 4</td>
+			</tr>
+
+			<tr>
+				<td>Row 2 col 1</td>
+				<td>Row 2 col 2</td>
+				<td>Row 2 col 3</td>
+				<td>Row 2 col 4</td>
+			</tr>
+
+			<tr>
+				<td>Row 3 col 1</td>
+				<td>Row 3 col 2</td>
+				<td>Row 3 col 3</td>
+				<td>Row 3 col 4</td>
+			</tr>
+
+			<tr>
+				<td>Row 4 col 1</td>
+				<td>Row 4 col 2</td>
+				<td>Row 4 col 3</td>
+				<td>Row 4 col 4</td>
+			</tr>
+		</tbody>
+	</table>
+</section>
+
+
+<!-- the grid
+-->
+
+<section id="grid">
+	<div><h2>The grid</h2></div>
+
+	<p>Getting a classless grid system in AMP requires using the standards compliant and totally working <code>span</code> element.</p>
+
+	<p>The CSS&#8203;AMP grid is simple and succinct. It's also fully responsive so that's nice. Just use the <code>span</code> element and throw some <code>div</code>s with <code>data-col</code> attributed children in there and you're good. No need for <code>row</code> as the <code>data-col</code>s will wrap around.</p>
+
+	<p>Since there are no rows, column widths are expressed in fractions which should make identifying rows easier. Eg: <code>1/3</code> and <code>2/3</code> make a row.
+
+	<p><em>Note that each column in this grid will be 100% width on a mobile device.</em></p>
+
+	<span>
+		<div data-col="1/12"><div><b>1/12</b></div></div>
+		<div data-col="11/12"><div><b>11/12</b></div></div>
+		<div data-col="1/6"><div><b>2/12</b> or <b>1/6</b></div></div>
+		<div data-col="5/6"><div><b>10/12</b> or <b>5/6</b></div></div>
+		<div data-col="1/4"><div><b>3/12</b> or <b>1/4</b></div></div>
+		<div data-col="3/4"><div><b>9/12</b> or <b>3/4</b></div></div>
+		<div data-col="1/3"><div><b>4/12</b> or <b>2/6</b> or <b>1/3</b></div></div>
+		<div data-col="2/3"><div><b>8/12</b> or <b>2/3</b></div></div>
+		<div data-col="5/12"><div><b>5/12</b></div></div>
+		<div data-col="7/12"><div><b>7/12</b></div></div>
+		<div data-col="1/2"><div><b>6/12</b> or <b>3/6</b> or <b>2/4</b> or <b>1/2</b></div></div>
+		<div data-col="1/2"><div><b>6/12</b> or <b>3/6</b> or <b>2/4</b> or <b>1/2</b></div></div>
+		<div data-col="1/1"><div><b>1/1</b></div></div>
+	</span>
+
+<!-- code -------------------------------------------------------- -->
+<pre><code>&#x3C;!-- no need for rows, span will act as both row and container --&#x3E;
+&#x3C;span&#x3E;
+&#x9;&#x3C;div data-col=&#x22;1/3&#x22;&#x3E;&#x3C;/div&#x3E;
+&#x9;&#x3C;div data-col=&#x22;2/3&#x22;&#x3E;&#x3C;/div&#x3E;
+
+&#x9;&#x3C;!-- new row --&#x3E;
+
+&#x9;&#x3C;div data-col=&#x22;1/2&#x22;&#x3E;&#x3C;/div&#x3E;
+&#x9;&#x3C;div data-col=&#x22;1/2&#x22;&#x3E;&#x3C;/div&#x3E;
+&#x3C;/span&#x3E;
+</code></pre>
+<!-- /code -----------------------------------------------------// -->
+
+	<hr><!-- fixed grids -->
+
+	<span>
+		<div data-col="1/3">
+			<h4>Fixed grids for mobile</h4>
+
+			<p>The grid columns will automatically expand to 100% width when the viewport reaches the <code>@mobile</code> width. To prevent this, add the <code>data-fx</code> attribute to the column.</p>
+		</div>
+
+		<div data-col="2/3">
+			<span>
+				<div data-fx data-col="5/12"><div><b>5/12</b></div></div>
+				<div data-fx data-col="7/12"><div><b>7/12</b></div></div>
+				<div data-fx data-col="1/2"><div><b>1/2</b></div></div>
+				<div data-fx data-col="1/2"><div><b>1/2</b></div></div>
+			</span>
+
+<!-- code -------------------------------------------------------- -->
+<pre><code>&#x3C;!-- adding data-fx to the data-col will retain width on mobile --&#x3E;
+&#x3C;span&#x3E;
+&#x9;&#x3C;div data-fx data-col=&#x22;5/12&#x22;&#x3E;&#x3C;/div&#x3E;
+&#x9;&#x3C;div data-fx data-col=&#x22;7/12&#x22;&#x3E;&#x3C;/div&#x3E;
+&#x3C;/span&#x3E;
+</code></pre>
+<!-- /code -----------------------------------------------------// -->
+
+		</div>
+	</span>
+
+	<hr><!-- nested grids -->
+
+	<span>
+		<div data-col="1/3">
+			<h4>Nested grids</h4>
+
+			<p>You can place a <code>span</code> inside of <code>data-col</code> to nest grids. You can do this as many times as you like.</p>
+		</div>
+
+		<div data-col="2/3">
+			<span>
+				<div data-col="1/2"><div><b>1/2</b></div></div>
+				<div data-col="1/2">
+					<span>
+						<div data-col="1/1"><div><b>1/1</b></div></div>
+						<div data-col="1/2"><div><b>1/2</b></div></div>
+						<div data-col="1/2"><div><b>1/2</b></div></div>
+					</span>
+				</div>
+			</span>
+
+<!-- code -------------------------------------------------------- -->
+<pre><code>&#x3C;!-- you can nest a span inside a col --&#x3E;
+&#x3C;span&#x3E;
+&#x9;&#x3C;div data-col=&#x22;1/2&#x22;&#x3E;&#x3C;/div&#x3E;
+&#x9;&#x3C;div data-col=&#x22;1/2&#x22;&#x3E;
+&#x9;&#x9;&#x3C;!-- nested grid --&#x3E;
+&#x9;&#x9;&#x3C;span&#x3E;
+&#x9;&#x9;&#x9;&#x3C;div data-col=&#x22;1/1&#x22;&#x3E;&#x3C;/div&#x3E;
+&#x9;&#x9;&#x9;&#x3C;div data-col=&#x22;1/2&#x22;&#x3E;&#x3C;/div&#x3E;
+&#x9;&#x9;&#x9;&#x3C;div data-col=&#x22;1/2&#x22;&#x3E;&#x3C;/div&#x3E;
+&#x9;&#x9;&#x3C;/span&#x3E;
+&#x9;&#x3C;/div&#x3E;
+&#x3C;/span&#x3E;
+</code></pre>
+<!-- /code -----------------------------------------------------// -->
+
+		</div>
+	</div>
+
+	<hr><!-- grids with horizontal rule -->
+
+	<span>
+		<div data-col="1/3">
+			<h4>Grids with horizontal rule</h4>
+
+			<p>The examples you are looking at now are all <code>col</code>s within a <code>span</code> separated by <code>hr</code>s.</p>
+		</div>
+
+		<div data-col="2/3">
+<!-- code -------------------------------------------------------- -->
+<pre><code>&#x3C;!-- you can use a hr to separate cols --&#x3E;
+&#x3C;span&#x3E;
+&#x9;&#x3C;div data-col=&#x22;1/2&#x22;&#x3E;&#x3C;/div&#x3E;
+&#x9;&#x3C;div data-col=&#x22;1/2&#x22;&#x3E;&#x3C;/div&#x3E;
+
+&#x9;&#x3C;hr&#x3E;
+
+&#x9;&#x3C;div data-col=&#x22;1/2&#x22;&#x3E;&#x3C;/div&#x3E;
+&#x9;&#x3C;div data-col=&#x22;1/2&#x22;&#x3E;&#x3C;/div&#x3E;
+&#x3C;/span&#x3E;
+</code></pre>
+<!-- /code -----------------------------------------------------// -->
+
+		</div>
+	</div>
+
+</section>
+
+
+<!-- cards
+-->
+
+<section id="cards">
+	<div><h2>Cards</h2></div>
+
+	<p>Cards use the also totally compliant <code>figure</code> element and works fine in IE9+. These cards are meant to be used within a grid.</p>
+
+	<span>
+		<div data-col="1/3">
+			<figure>
+				<h5>Card one</h5>
+				<hr>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			</figure>
+		</div>
+
+		<div data-col="1/3">
+			<figure>
+				<h5>Card two</h5>
+				<hr>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+			</figure>
+		</div>
+
+		<div data-col="1/3">
+			<figure>
+				<h5>Card three</h5>
+				<hr>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+			</figure>
+		</div>
+	</span>
+
+<!-- code -------------------------------------------------------- -->
+<pre><code>&#x3C;!-- figure element --&#x3E;
+&#x3C;figure&#x3E;
+&#x9;&#x3C;p&#x3E;Your content&#x3C;/p&#x3E;
+&#x3C;/figure&#x3E;
+
+&#x3C;!-- card within a grid --&#x3E;
+&#x3C;span&#x3E;
+&#x9;&#x3C;div data-col=&#x22;1/2&#x22;&#x3E;
+&#x9;&#x9;&#x3C;figure&#x3E;
+&#x9;&#x9;&#x9;&#x3C;h5&#x3E;Card title&#x3C;/h5&#x3E;
+&#x9;&#x9;&#x9;&#x3C;hr&#x3E;
+&#x9;&#x9;&#x9;&#x3C;p&#x3E;Your content here&#x3C;/p&#x3E;
+&#x9;&#x9;&#x3C;/figure&#x3E;
+&#x9;&#x3C;/div&#x3E;
+
+&#x9;&#x3C;div data-col=&#x22;1/2&#x22;&#x3E;
+&#x9;&#x9;&#x3C;figure&#x3E;
+&#x9;&#x9;&#x9;&#x3C;h5&#x3E;Card title&#x3C;/h5&#x3E;
+&#x9;&#x9;&#x9;&#x3C;hr&#x3E;
+&#x9;&#x9;&#x9;&#x3C;p&#x3E;Your content here&#x3C;/p&#x3E;
+&#x9;&#x9;&#x3C;/figure&#x3E;
+&#x9;&#x3C;/div&#x3E;
+&#x3C;/span&#x3E;
+</code></pre>
+<!-- /code -----------------------------------------------------// -->
+
+	<hr>
+
+	<h3>Cards with images</h3>
+
+	<span>
+		<div data-col="1/3">
+			<figure>
+				<amp-img data-xx src="https://theimgsrc.com/640x427/rainbow.jpg" width="640" height="427" layout="responsive"></amp-img>
+				<h5>Top image</h5>
+				<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
+			</figure>
+
+<!-- code -------------------------------------------------------- -->
+<pre><code>&#x3C;!-- image at the top --&#x3E;
+&#x3C;figure&#x3E;
+&#x9;&#x3C;amp-img data-xx src=&#x22;sign.jpg&#x22; width=&#x22;640&#x22; height=&#x22;427&#x22; layout=&#x22;responsive&#x22;&#x3E;
+&#x9;&#x3C;/amp-img&#x3E;
+
+&#x9;&#x3C;h5&#x3E;Title&#x3C;/h5&#x3E;
+
+&#x9;&#x3C;p&#x3E;Content goes here&#x3C;/p&#x3E;
+&#x3C;/figure&#x3E;
+</code></pre>
+<!-- /code -----------------------------------------------------// -->
+
+		</div>
+
+		<div data-col="1/3">
+			<figure>
+				<h5>Middle image</h5>
+				<amp-img data-xx src="https://theimgsrc.com/640x427/rainbow.jpg" width="640" height="427" layout="responsive"></amp-img>
+				<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
+			</figure>
+
+<!-- code -------------------------------------------------------- -->
+<pre><code>&#x3C;!-- image in the middle --&#x3E;
+&#x3C;figure&#x3E;
+&#x9;&#x3C;h5&#x3E;Title&#x3C;/h5&#x3E;
+
+&#x9;&#x3C;amp-img data-xx src=&#x22;sign.jpg&#x22; width=&#x22;640&#x22; height=&#x22;427&#x22; layout=&#x22;responsive&#x22;&#x3E;
+&#x9;&#x3C;/amp-img&#x3E;
+
+&#x9;&#x3C;p&#x3E;Content goes here&#x3C;/p&#x3E;
+&#x3C;/figure&#x3E;</code></pre>
+<!-- /code -----------------------------------------------------// -->
+
+		</div>
+
+		<div data-col="1/3">
+			<figure>
+				<h5>Bottom image</h5>
+				<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
+				<amp-img data-xx src="https://theimgsrc.com/640x427/rainbow.jpg" width="640" height="427" layout="responsive"></amp-img>
+			</figure>
+
+<!-- code -------------------------------------------------------- -->
+<pre><code>&#x3C;!-- image at the bottom --&#x3E;
+&#x3C;figure&#x3E;
+&#x9;&#x3C;h5&#x3E;Title&#x3C;/h5&#x3E;
+
+&#x9;&#x3C;p&#x3E;Content goes here&#x3C;/p&#x3E;
+
+&#x9;&#x3C;amp-img data-xx src=&#x22;sign.jpg&#x22; width=&#x22;640&#x22; height=&#x22;427&#x22; layout=&#x22;responsive&#x22;&#x3E;
+&#x9;&#x3C;/amp-img&#x3E;
+&#x3C;/figure&#x3E;
+</code></pre>
+<!-- /code -----------------------------------------------------// -->
+		</div>
+	</span>
+</section>
+
+
+<!-- utility attributes
+-->
+
+<section id="utility-attributes">
+	<div><h2>Utility attributes</h2></div>
+
+	<p>CSS&#8203;AMP has a few utility attributes to make laying out a site a little faster. Sometimes you don't need to give an element a unique class to make it's text align right. Use these attributes to apply quick styles such as paddings or margins.</p>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Attribute</th>
+				<th>Values</th>
+				<th>Effect</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr>
+				<td><code>data-full</code></td>
+				<td>null</td>
+				<td>Width 100%</td>
+			</tr>
+
+			<tr>
+				<td><code>data-hide</code></td>
+				<td>null</td>
+				<td>Display none</td>
+			</tr>
+
+			<tr>
+				<td><code>data-fs</code></td>
+				<td><code>xs</code> <code>s</code> <code>m</code> <code>l</code> <code>xl</code></td>
+				<td>Sets font sizes from 1.1rem to 2.4rem</td>
+			</tr>
+
+			<tr>
+				<td><code>data-mt</code></td>
+				<td><code>0</code> <code>2</code> <code>4</code> <code>8</code></td>
+				<td>Sets margin-top from 0 to 8rem</td>
+			</tr>
+
+			<tr>
+				<td><code>data-mb</code></td>
+				<td><code>0</code> <code>2</code> <code>4</code> <code>8</code></td>
+				<td>Sets margin-bottom from 0 to 8rem</td>
+			</tr>
+
+			<tr>
+				<td><code>data-pt</code></td>
+				<td><code>0</code> <code>2</code> <code>4</code> <code>8</code></td>
+				<td>Sets padding-top from 0 to 8rem</td>
+			</tr>
+
+			<tr>
+				<td><code>data-pb</code></td>
+				<td><code>0</code> <code>2</code> <code>4</code> <code>8</code></td>
+				<td>Sets padding-bottom from 0 to 8rem</td>
+			</tr>
+
+			<tr>
+				<td><code>data-pa</code></td>
+				<td><code>0</code> <code>2</code></td>
+				<td>Either removes all padding or sets padding for all sides to 2rem</td>
+			</tr>
+
+			<tr>
+				<td><code>data-txt</code></td>
+				<td><code>l</code> <code>c</code> <code>r</code> <code>j</code></td>
+				<td>Sets text alignment to left, center, right or justify</td>
+			</tr>
+		</tbody>
+	</table>
+
+<!-- code -------------------------------------------------------- -->
+<pre><code>&#x3C;!-- margin top 2rem + margin bottom 4rem --&#x3E;
+&#x3C;div data-mt=&#x22;2&#x22; data-mb=&#x22;4&#x22;&#x3E;&#x3C;/div&#x3E;
+
+&#x3C;!-- padding all 2rem --&#x3E;
+&#x3C;p data-pa=&#x22;2&#x22;&#x3E;&#x3C;/p&#x3E;
+
+&#x3C;!-- text align right + font size small --&#x3E;
+&#x3C;p data-txt=&#x22;r&#x22; fs=&#x22;s&#x22;&#x3E;&#x3C;/p&#x3E;
+</code></pre>
+<!-- /code -----------------------------------------------------// -->
+
+</section>
+
+
+<!-- footer
+-->
+
+<section id="footer">
+	<div><h2>Footer</h2></div>
+
+	<p>If you need a footer, just use the <code>footer</code> element. No need to place it inside a <code>section</code> as the contents will already be contained by default.</p>
+
+	<p><em>Note: footer is not sticky, if you want a sticky footer, you'll need to implement it yourself.</em></p>
+
+<!-- code -------------------------------------------------------- -->
+<pre><code>&#x3C;!-- the footer background will expand to 100% of viewport but contents will be contained to standard width --&#x3E;
+&#x3C;footer&#x3E;
+&#x9;&#x3C;span&#x3E;
+&#x9;&#x9;&#x3C;div data-col=&#x22;1/2&#x22;&#x3E;
+&#x9;&#x9;&#x9;&#x3C;p&#x3E;Created by &#x3C;a data-att href=&#x22;http://www.morganmacarthur.com&#x22;&#x3E;Morgan MacArthur&#x3C;/a&#x3E;&#x3C;/p&#x3E;
+&#x9;&#x9;&#x3C;/div&#x3E;
+
+&#x9;&#x9;&#x3C;div data-col=&#x22;1/2&#x22; data-txt=&#x22;r&#x22;&#x3E;
+&#x9;&#x9;&#x9;&#x3C;a data-att href=&#x22;https://github.com/morganmacarthur/CSSAMP&#x22; target=&#x22;_blank&#x22;&#x3E;
+&#x9;&#x9;&#x9;&#x9;&#x3C;img class=&#x22;github-icon&#x22; src=&#x22;img/github.svg&#x22;&#x3E;
+&#x9;&#x9;&#x9;&#x3C;/a&#x3E;
+&#x9;&#x9;&#x3C;/div&#x3E;
+&#x9;&#x3C;/span&#x3E;
+&#x3C;/footer&#x3E;
+</code></pre>
+<!-- /code -----------------------------------------------------// -->
+
+</section>
+
+
+
+<footer data-txt="r">
+<p>
+&copy;2023&nbsp;CSSAMP
+</p>
+</footer>
+</body>
+</html>
