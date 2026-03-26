@@ -298,10 +298,10 @@ nav:not([class]) ul li ul,nav[data-xx] ul li ul{visibility:hidden;opacity:0;posi
 
 		<div data-col="3/4">
 			<p>CSS&#8203;AMP is a CSS only framework for AMP HTML that styles frequently used HTML tags without the need for classes. It also provides a few utilities such as a responsive grid and CSS-only tooltips.</p>
-			<p>CSS&#8203;AMP can be used stand-alone or as a foundation to build upon. This site you're viewing now uses CSS&#8203;AMP and is all you need to get started.</p>
-			<p>Compatible with all modern browsers and IE9+.</p>
+			<p>CSS&#8203;AMP can be used as-is or as a base layer for a custom AMP document. This page doubles as both the demo and the reference implementation.</p>
+			<p>Designed for modern browsers and AMP-era documents.</p>
 
-			<p>No download necessary. This page uses the latest CSSAMP version and is the template.</p>
+			<p>No separate starter template is required. The patterns on this page are the project.</p>
 		</div>
 
 		<hr>
@@ -317,7 +317,7 @@ nav:not([class]) ul li ul,nav[data-xx] ul li ul{visibility:hidden;opacity:0;posi
 
 			<p>So in a similar vein as <a data-att href="http://purecss.io" target="_blank">Pure</a> and <a data-att href="http://getskeleton.com" target="_blank">Skeleton</a>, CSS&#8203;AMP aims to provide a minimal CSS framework that requires minimal setup.</p>
 
-			<p>CSS&#8203;AMP takes this minimal approach one step further by making it completely classless. Not only that, but the default styles are <em>only</em> applied to elements without classes. Why only bare tags? For custom components and modules, you may not want the standard stylings to apply, so by giving them a class you're removing all CSS&#8203;AMP styling. If you want to add a class and want the CSS&#8203;AMP styling applied, just add the <code>data-xx</code> attribute to that element.</p>
+			<p>CSS&#8203;AMP takes that minimal approach one step further by staying completely classless. Default styles are applied <em>only</em> to elements without classes, which keeps custom components and one-off modules easy to opt out of. If you want to keep the library styling on a tagged element, add the <code>data-xx</code> attribute.</p>
 		</div>
 
 		<hr>
@@ -331,7 +331,7 @@ nav:not([class]) ul li ul,nav[data-xx] ul li ul{visibility:hidden;opacity:0;posi
 		<div data-col="3/4">
 			<p>CSS&#8203;AMP effectively changes the default browser styles. Any commonly used tags such as <code data-xx>input</code> or <code data-xx>button</code> are styled <em>only</em> if they don't have any classes.</p>
 
-			<p>What if you want to add a class to a tag but still want to retain the CSS&#8203;AMP style? Just add the attribute <code>data-xx</code> to the tag and the CSS&#8203;AMP styles will be applied.</p>
+			<p>If you need to add a class to an element but still want the default CSS&#8203;AMP styling, add the <code>data-xx</code> attribute to that same tag.</p>
 
 <!-- code -------------------------------------------------------- -->
 <pre><code>&#x3C;!-- want to style a button? --&#x3E;
@@ -464,16 +464,16 @@ nav:not([class]) ul li ul,nav[data-xx] ul li ul{visibility:hidden;opacity:0;posi
 <section id="navigation">
 	<div><h2>Navigation</h2></div>
 
-	<p>Getting a responsive nav bar with a hamburger menu for mobile without using any Javascript requires a bit of a hack. You need to follow the exact structure listed below for it to work properly.</p>
+	<p>This responsive navigation pattern uses a checkbox and label structure instead of custom JavaScript, so the markup order matters more than in a typical nav component.</p>
 
-	<p>This site uses the CSS&#8203;AMP nav so you can resize your browser window to see how it looks on desktop/mobile. This site uses the fixed nav bar so it's using the <code>data-fx</code> attribute to keep it fixed. Mobile nav is fixed by default.</p>
+	<p>This page uses the fixed variant, so you can resize the viewport to see how the desktop and mobile states behave. Add <code>data-fx</code> if you want the desktop nav fixed to the top as well.</p>
 
 <!-- code -------------------------------------------------------- -->
 <pre><code>&#x3C;!-- add the data-fx attribute to the nav if you want it fixed to the top --&#x3E;
 &#x3C;nav&#x3E;
 &#x9;&#x3C;!-- this label allows the checkbox to be activated by clicking anywhere in the nav --&#x3E;
 &#x9;&#x3C;label&#x3E;
-&#x9;&#x9;&#x3C;!-- checkbox required for responsiven menu --&#x3E;
+&#x9;&#x9;&#x3C;!-- checkbox required for responsive menu --&#x3E;
 &#x9;&#x9;&#x3C;input type=&#x22;checkbox&#x22;&#x3E;
 
 &#x9;&#x9;&#x3C;!-- CSS&#8203;AMP will use the header to contain the hamburger menu --&#x3E;
@@ -514,7 +514,7 @@ nav:not([class]) ul li ul,nav[data-xx] ul li ul{visibility:hidden;opacity:0;posi
 	<p><b>Note</b>: Because of CSS specificity, overwriting the default style with a class will require specifying that the class applies to a <code>section</code> element. <em>Eg: Your CSS property should look like <code>section.custom-section</code> rather than just <code>.custom-section</code>.</em></p>
 
 <!-- code -------------------------------------------------------- -->
-<pre><code>&#x3C;!-- use sections to quickly and easily contian content --&#x3E;
+<pre><code>&#x3C;!-- use sections to quickly and easily contain content --&#x3E;
 &#x3C;section&#x3E;
 &#x9;Your code here.
 &#x3C;/section&#x3E;
@@ -532,9 +532,9 @@ nav:not([class]) ul li ul,nav[data-xx] ul li ul{visibility:hidden;opacity:0;posi
 
 	<span>
 		<div data-col="1/2">
-			<p>Font sizes in CSS&#8203;AMP are based in <code>rem</code>s. You can set the initial font size in the <code>html</code> element to change the scale. The default is <code>10px</code> so that 1rem is 10px and 2rem is 20px etc.</p>
-			<p>The font family defaults are just the standard browser defaults, so <code>data-serif</code>, <code>data-sans-serif</code> and <code>data-monospace</code> fonts are chosen by the browser. You can change this in the CSS font variablea.
-			<p>The main thing CSS&#8203;AMP does to headings is to standardise the margins and paddings. <code>h1</code> through to <code>h6</code> are taken care of.</p>
+			<p>Font sizes in CSS&#8203;AMP are based on <code>rem</code>s. You can change the scale by adjusting the <code>html</code> font size. The default is <code>10px</code>, so 1rem maps neatly to 10px.</p>
+			<p>The font-family defaults are intentionally simple. <code>data-serif</code>, <code>data-sans</code>, and <code>data-mono</code> all draw from the CSS variables near the top of the stylesheet.</p>
+			<p>Heading styles mainly standardize spacing and scale, covering <code>h1</code> through <code>h6</code> without additional classes.</p>
 		</div>
 
 		<div data-col="1/2">
@@ -781,7 +781,7 @@ nav:not([class]) ul li ul,nav[data-xx] ul li ul{visibility:hidden;opacity:0;posi
 <section id="forms">
 	<div><h2>Forms</h2></div>
 
-	<p>CSSAMP keeps the default classless form approach, but now covers a few more of the controls that used to fall through the cracks. Labels still work best directly after <code>radio</code> and <code>checkbox</code> inputs, while everything else is designed to hold a stable width in a normal document flow.</p>
+	<p>CSSAMP keeps the classless form approach, but covers more of the controls that used to fall through the cracks. Labels still work best directly after <code>radio</code> and <code>checkbox</code> inputs, while the other controls are sized to stay stable in normal document flow.</p>
 
 	<fieldset>
 		<legend>Common controls</legend>
@@ -945,7 +945,7 @@ nav:not([class]) ul li ul,nav[data-xx] ul li ul{visibility:hidden;opacity:0;posi
 <section id="code">
 	<div><h2>Code</h2></div>
 
-	<p>The <code>code</code> tag functionality has been kept basic as you'll most likely be using something like <a href="http://prismjs.com">PrismJS</a> for syntax highlighting and code escaping.</p>
+	<p>The <code>code</code> styles are intentionally light. If you want syntax highlighting, pair them with the tooling of your choice.</p>
 
 	<p>Here is some <code>inline</code> code.</p>
 
@@ -998,14 +998,14 @@ Code line 3&#x3C;/code&#x3E;&#x3C;/pre&#x3E;
 <section id="lists">
 	<div><h2>Lists</h2></div>
 
-	<p>As long as the <code>ul</code> or <code>ol</code> tag is classless or has the <code>data-xx</code> attribute the styles should apply to the child <code>li</code> elements too.</p>
+	<p>If the parent <code>ul</code> or <code>ol</code> is classless, or carries <code>data-xx</code>, the child <code>li</code> elements inherit the list styling automatically.</p>
 
 	<span>
 		<div data-col="1/2">
 			<ul>
 				<li>Unordered list item one</li>
 				<li>Unordered list item two</li>
-				<li>Unordered list item three with nest list:
+				<li>Unordered list item three with nested list:
 					<ul>
 						<li>Nested item one</li>
 						<li>Nested item two</li>
@@ -1019,7 +1019,7 @@ Code line 3&#x3C;/code&#x3E;&#x3C;/pre&#x3E;
 			<ol>
 				<li>Ordered list item one</li>
 				<li>Ordered list item two</li>
-				<li>Ordered list item three with nest list:
+				<li>Ordered list item three with nested list:
 					<ol>
 						<li>Nested item one</li>
 						<li>Nested item two</li>
@@ -1039,7 +1039,7 @@ Code line 3&#x3C;/code&#x3E;&#x3C;/pre&#x3E;
 <section id="tables">
 	<div><h2>Tables</h2></div>
 
-	<p>The tables are just your standard <code>table</code> element with <code>thead</code>, <code>tbody</code>, <code>tr</code>, <code>th</code> and <code>td</code> elements within. As long as the <code>table</code> tag is classless or with the <code>data-xx</code> attribute, the styles should apply to the child elements.</p>
+	<p>Tables use standard <code>table</code>, <code>thead</code>, <code>tbody</code>, <code>tr</code>, <code>th</code>, and <code>td</code> elements. If the table is classless, or marked with <code>data-xx</code>, the child elements pick up the library styling automatically.</p>
 
 	<p>When the user hovers over the head row, the relevant column will be highlighted. Any other row and the entire row will be highlighted.</p>
 
@@ -1092,13 +1092,11 @@ Code line 3&#x3C;/code&#x3E;&#x3C;/pre&#x3E;
 <section id="grid">
 	<div><h2>The grid</h2></div>
 
-	<p>Getting a classless grid system in AMP requires using the standards compliant and totally working <code>span</code> element.</p>
+	<p>The grid uses a plain <code>span</code> wrapper with child <code>div</code>s that declare widths through <code>data-col</code>.</p>
 
-	<p>The CSS&#8203;AMP grid is simple and succinct. It's also fully responsive so that's nice. Just use the <code>span</code> element and throw some <code>div</code>s with <code>data-col</code> attributed children in there and you're good. No need for <code>row</code> as the <code>data-col</code>s will wrap around.</p>
+	<p>There is no separate row element. Columns wrap naturally, and widths are expressed as fractions such as <code>1/3</code> and <code>2/3</code>.</p>
 
-	<p>Since there are no rows, column widths are expressed in fractions which should make identifying rows easier. Eg: <code>1/3</code> and <code>2/3</code> make a row.
-
-	<p><em>Note that each column in this grid will be 100% width on a mobile device.</em></p>
+	<p><em>By default, each column expands to 100% width on mobile.</em></p>
 
 	<span>
 		<div data-col="1/12"><div><b>1/12</b></div></div>
@@ -1235,7 +1233,7 @@ Code line 3&#x3C;/code&#x3E;&#x3C;/pre&#x3E;
 <section id="cards">
 	<div><h2>Cards</h2></div>
 
-	<p>Cards use the also totally compliant <code>figure</code> element and works fine in IE9+. These cards are meant to be used within a grid.</p>
+	<p>Cards use the <code>figure</code> element and fit naturally inside the grid examples shown on this page.</p>
 
 	<span>
 		<div data-col="1/3">
@@ -1457,7 +1455,7 @@ Code line 3&#x3C;/code&#x3E;&#x3C;/pre&#x3E;
 <section id="footer">
 	<div><h2>Footer</h2></div>
 
-	<p>If you need a footer, just use the <code>footer</code> element. No need to place it inside a <code>section</code> as the contents will already be contained by default.</p>
+	<p>If you need a footer, use the <code>footer</code> element directly. It already inherits the same content width constraints, so it does not need an extra <code>section</code> wrapper.</p>
 
 	<p><em>Note: footer is not sticky, if you want a sticky footer, you'll need to implement it yourself.</em></p>
 
