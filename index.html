@@ -9,6 +9,7 @@
 <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
 <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
 <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+<!-- Source stylesheet lives in cssamp.css; keep this amp-custom block in sync for AMP publishing. -->
 <style amp-custom>
 
 :root {
@@ -96,8 +97,18 @@ span span:not(:first-child){margin:1rem -1rem 0}
 
 label:not([class]),label[data-xx]{display:inline-block;width:100%;text-transform:uppercase;font-size:1.4rem;font-weight:400;margin-top:1rem}
 label:not([class]):first-child,label[data-xx]:first-child{margin-top:0}
+form:not([class]),form[data-xx]{margin:0 0 2rem}
+form:not([class]):last-child,form[data-xx]:last-child{margin-bottom:0}
+fieldset:not([class]),fieldset[data-xx]{margin:0 0 2rem;padding:2rem;border:1px solid var(--border);border-radius:2px}
+legend:not([class]),legend[data-xx]{padding:0 .8rem;text-transform:uppercase;font-size:1.4rem;font-weight:700;color:var(--heading)}
 input:not([type=radio]):not([type=checkbox]):not([type=button]):not([type=submit]):not([class]),input:not([type=radio]):not([type=checkbox]):not([type=button]):not([type=submit])[data-xx],input:not([type=radio]):not([type=checkbox]):not([type=button]):not([type=submit])[class^=user-]{display:inline-block;background:0 0;width:100%;padding:1rem;margin-bottom:2rem;border:1px solid var(--border);font-size:1.7rem;font-weight:400;border-radius:0}
 input:not([type=radio]):not([type=checkbox]):not([type=button]):not([type=submit]):not([class]):focus,input:not([type=radio]):not([type=checkbox]):not([type=button]):not([type=submit]):not([class]):hover,input:not([type=radio]):not([type=checkbox]):not([type=button]):not([type=submit])[data-xx]:focus,input:not([type=radio]):not([type=checkbox]):not([type=button]):not([type=submit])[data-xx]:hover,input:not([type=radio]):not([type=checkbox]):not([type=button]):not([type=submit])[class^=user-]:focus,input:not([type=radio]):not([type=checkbox]):not([type=button]):not([type=submit])[class^=user-]:hover{color:var(--button);border-color:var(--border);outline:0}
+input[type=date]:not([class]),input[type=search]:not([class]),input[type=file]:not([class]),input[type=date][data-xx],input[type=search][data-xx],input[type=file][data-xx],input[type=date][class^=user-],input[type=search][class^=user-],input[type=file][class^=user-]{min-height:4.4rem;-webkit-appearance:none;appearance:none}
+input[type=search]:not([class]),input[type=search][data-xx],input[type=search][class^=user-]{padding-right:4rem}
+input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none;appearance:none}
+input[type=file]:not([class]),input[type=file][data-xx],input[type=file][class^=user-]{padding:.7rem 1rem;background:var(--inset);border-style:dashed;cursor:pointer}
+input[type=file]::file-selector-button{margin:-.3rem 1rem -.3rem -.3rem;padding:.8rem 1.2rem;border:1px solid var(--border);background:var(--body);color:var(--link);font:inherit;text-transform:uppercase;cursor:pointer}
+input[type=file]::-webkit-file-upload-button{margin:-.3rem 1rem -.3rem -.3rem;padding:.8rem 1.2rem;border:1px solid var(--border);background:var(--body);color:var(--link);font:inherit;text-transform:uppercase;cursor:pointer}
 textarea:not([class]),textarea[data-xx],textarea[class^=user-]{display:inline-block;background:0 0;width:100%;padding:.5rem 0 1rem;margin-bottom:2rem;border:none;border-bottom:1px solid var(--border);font-size:1.7rem;font-weight:400;border-radius:0;min-height:8rem;border-right:1px solid var(--border);padding-right:2rem;border-bottom-right-radius:.5rem}
 textarea:not([class]):focus,textarea:not([class]):hover,textarea[data-xx]:focus,textarea[data-xx]:hover,textarea[class^=user-]:focus,textarea[class^=user-]:hover{color:var(--button);border-color:var(--border);outline:0}
 select:not([class]),select[data-xx],select[class^=user-]{padding:.5rem 3rem .5rem 1rem;display:block;width:100%;border:1px solid var(--border);background:var(--body) var(--downarrow) no-repeat right 1rem center;background-size:2rem;border-radius:2px;height:4rem;font-size:1.7rem;font-weight:400;text-indent:.5rem;margin:.5rem 0 2rem;-webkit-appearance:none;-moz-appearance:none;appearance:none;cursor:pointer}
@@ -115,6 +126,15 @@ input[type=checkbox]:not([class])+label:before,input[type=checkbox][data-xx]+lab
 input[type=checkbox]:not([class])+label:after,input[type=checkbox][data-xx]+label:after,input[type=checkbox][class^=user-]+label:after{background:var(--checkbox) no-repeat center center;border-radius:100%;background-size:100%}
 input[type=checkbox]:not([class]):checked+label:before,input[type=checkbox][data-xx]:checked+label:before,input[type=checkbox][class^=user-]:checked+label:before{background:var(--button);border-color:var(--border)}
 input[type=checkbox]:not([class]):checked+label:after,input[type=checkbox][data-xx]:checked+label:after,input[type=checkbox][class^=user-]:checked+label:after{opacity:1;visibility:visible;left:2px;top:.5rem;-webkit-transform:scale(1);transform:scale(1)}
+[visible-when-invalid]:not([class]),[visible-when-invalid][data-xx]{display:block;margin:-1rem 0 2rem;color:var(--accent);font-size:1.4rem;line-height:1.5}
+[submitting],[submit-success],[submit-error]{display:none;padding:1.2rem 1.5rem;margin:0 0 2rem;border:1px solid var(--border);border-radius:2px;background:var(--inset)}
+.amp-form-submitting [submitting],.amp-form-submit-success [submit-success],.amp-form-submit-error [submit-error]{display:block}
+.amp-form-submitting [type=submit],.amp-form-submit-success [type=submit],.amp-form-submit-error [type=submit]{margin-bottom:0}
+.amp-form-submit-success [submit-success]{border-color:var(--button)}
+.amp-form-submit-error [submit-error]{border-color:var(--accent);color:var(--accent)}
+[submitting] > :last-child,[submit-success] > :last-child,[submit-error] > :last-child{margin-bottom:0}
+output:not([class]),output[data-xx],output[class^=user-]{display:inline-block;min-width:4rem;padding:.3rem .8rem;margin:0 0 2rem;background:var(--inset);border:1px solid var(--border);border-radius:2px;color:var(--accent);font-size:1.6rem;font-weight:700}
+progress:not([class]),progress[data-xx],meter:not([class]),meter[data-xx]{display:block;width:100%;height:1.2rem;margin:0 0 2rem}
 amp-img:not([class]),amp-img[data-xx],amp-img[class^=i-amp-],amp-img[class^=-amp-]{height:auto;max-width:100%}
 section,article,main:not([class]),section,article,main[data-xx]{margin:auto;padding:2rem;width:100%;max-width:90rem}
 p:not([class]),p[data-xx]{margin:0 0 2rem}
@@ -211,9 +231,6 @@ h6:not([class]),h6[data-xx]{font-size:1.8rem;line-height:1.5;letter-spacing:0;te
 div>h1:only-child{font-size:5.6rem;color:var(--headingcontrast);width:fit-content;background-color:var(--trans);padding:1rem;margin:auto;text-shadow:-1px -1px 0 var(--text),1px -1px 0 var(--text),-1px 1px 0 var(--text),1px 1px 0 var(--text)}
 section:nth-child(2){display:table;min-height:200px;background-color:var(--banner);background-image:var(--bannerimage);background-size:cover;background-position:center;max-width:100%}
 section>div:first-of-type{display:table-cell;vertical-align:middle}
-.amp-form-submit-success input{display:none}
-.amp-form-submit-success h2{display:none}
-.amp-form-submit-success p{display:none}
 
 @media (max-width:50rem){
 body{overflow-x:hidden}
@@ -713,18 +730,22 @@ nav:not([class]) ul li ul,nav[data-xx] ul li ul{visibility:hidden;opacity:0;posi
 		<div data-col="1/2">
 			<p>Enter some text to enable the disabled button.</p>
 
-<p>
 <form method="GET" action="/" target="_top" on="valid:AMP.setState({disable: false});invalid:AMP.setState({disable: true})" custom-validation-reporting="as-you-go">
 <label>Some Text</label>
 <input type="text" placeholder="Type anything" required>
+<span visible-when-invalid>Enter some text before submitting.</span>
 <button disabled data-primary data-m-full data-xx [disabled]="disable" data-tt="Not disabled" data-dtt="Disabled button tooltip">Disabled button</button>
 </form>
-</p>
 
 <!-- code -------------------------------------------------------- -->
 <pre><code>&#x3C;!-- disabled buttons --&#x3E;
 &#x3C;!-- note that you can have tooltips for enabled and disabled states --&#x3E;
-&#x3C;button disabled=&#x22;true&#x22; data-tt=&#x22;Not disabled&#x22; data-dtt=&#x22;Disabled&#x22;&#x3E;Disabled button&#x3C;/button&#x3E;
+&#x3C;form method=&#x22;GET&#x22; action=&#x22;/&#x22; target=&#x22;_top&#x22; on=&#x22;valid:AMP.setState({disable: false});invalid:AMP.setState({disable: true})&#x22; custom-validation-reporting=&#x22;as-you-go&#x22;&#x3E;
+&#x9;&#x3C;label&#x3E;Some Text&#x3C;/label&#x3E;
+&#x9;&#x3C;input type=&#x22;text&#x22; placeholder=&#x22;Type anything&#x22; required&#x3E;
+&#x9;&#x3C;span visible-when-invalid&#x3E;Enter some text before submitting.&#x3C;/span&#x3E;
+&#x9;&#x3C;button disabled data-tt=&#x22;Not disabled&#x22; data-dtt=&#x22;Disabled&#x22;&#x3E;Disabled button&#x3C;/button&#x3E;
+&#x3C;/form&#x3E;
 </code></pre>
 <!-- /code -----------------------------------------------------// -->
 
@@ -760,55 +781,158 @@ nav:not([class]) ul li ul,nav[data-xx] ul li ul{visibility:hidden;opacity:0;posi
 <section id="forms">
 	<div><h2>Forms</h2></div>
 
-	<p>Nothing special here, replacing the often ugly browser defaults with some CSS&#8203;AMP style. Just note that you need to place the <code>label</code> tag directly after the <code>radio</code> and <code>checkbox</code> inputs. Text inputs and select boxes are default to 100% width as you'll most likely use them in a grid.</p>
+	<p>CSSAMP keeps the default classless form approach, but now covers a few more of the controls that used to fall through the cracks. Labels still work best directly after <code>radio</code> and <code>checkbox</code> inputs, while everything else is designed to hold a stable width in a normal document flow.</p>
 
-	<label>Text Input</label>
-	<input type="text" placeholder="text">
+	<fieldset>
+		<legend>Common controls</legend>
 
-	<label>Text Area</label>
-	<textarea placeholder="more text"></textarea>
+		<label>Text Input</label>
+		<input type="text" placeholder="text">
+
+		<label>Text Area</label>
+		<textarea placeholder="more text"></textarea>
+
+		<label>Select</label>
+		<select>
+			<option disabled selected>Select an option</option>
+			<option>Option One</option>
+			<option>Option Two</option>
+			<option>Option Three</option>
+		</select>
+
+		<span>
+			<div data-col="1/2" data-fx>
+				<p><input type="checkbox" id="checkbox-1"> <label for="checkbox-1">Checkbox 1</label><br><input type="checkbox" id="checkbox-2"> <label for="checkbox-2">Checkbox 2</label></p>
+			</div>
+
+			<div data-col="1/2" data-fx>
+				<p><input type="radio" name="radio" id="radio-1"> <label for="radio-1">Radio 1</label><br><input type="radio" name="radio" id="radio-2"> <label for="radio-2">Radio 2</label></p>
+			</div>
+		</span>
+	</fieldset>
 
 <!-- code -------------------------------------------------------- -->
-<pre><code>&#x3C;label&#x3E;Username&#x3C;/label&#x3E;
-&#x3C;input type=&#x22;text&#x22; placeholder=&#x22;username&#x22;&#x3E;
+<pre><code>&#x3C;fieldset&#x3E;
+&#x9;&#x3C;legend&#x3E;Common controls&#x3C;/legend&#x3E;
+&#x9;&#x3C;label&#x3E;Username&#x3C;/label&#x3E;
+&#x9;&#x3C;input type=&#x22;text&#x22; placeholder=&#x22;username&#x22;&#x3E;
 
-&#x3C;label&#x3E;Password&#x3C;/label&#x3E;
-&#x3C;input type=&#x22;password&#x22; placeholder=&#x22;password&#x22;&#x3E;
+&#x9;&#x3C;label&#x3E;Comment&#x3C;/label&#x3E;
+&#x9;&#x3C;textarea placeholder=&#x22;comment&#x22;&#x3E;&#x3C;/textarea&#x3E;
 
-&#x3C;label&#x3E;Comment&#x3C;/label&#x3E;
-&#x3C;textarea placeholder=&#x22;comment&#x22;&#x3E;&#x3C;/textarea&#x3E;
+&#x9;&#x3C;label&#x3E;Select&#x3C;/label&#x3E;
+&#x9;&#x3C;select&#x3E;
+&#x9;&#x9;&#x3C;option disabled selected&#x3E;Select an option&#x3C;/option&#x3E;
+&#x9;&#x9;&#x3C;option&#x3E;Option One&#x3C;/option&#x3E;
+&#x9;&#x3C;/select&#x3E;
+&#x3C;/fieldset&#x3E;
 </code></pre>
 <!-- /code -----------------------------------------------------// -->
 
-	<select>
-		<option disabled selected>Select an option</option>
-		<option>Option One</option>
-		<option>Option Two</option>
-		<option>Option Three</option>
-	</select>
+	<hr>
 
 	<span>
-		<div data-col="1/2" data-fx>
-			<p><input type="checkbox" id="checkbox-1"> <label for="checkbox-1">Checkbox 1</label><br><input type="checkbox" id="checkbox-2"> <label for="checkbox-2">Checkbox 2</label></p>
+		<div data-col="1/2">
+			<h3>Specialized controls</h3>
+
+			<label>Search</label>
+			<input type="search" placeholder="Search the document">
+
+			<label>Date</label>
+			<input type="date" value="2026-03-25">
 		</div>
 
-		<div data-col="1/2" data-fx>
-			<p><input type="radio" name="radio" id="radio-1"> <label for="radio-1">Radio 1</label><br><input type="radio" name="radio" id="radio-2"> <label for="radio-2">Radio 2</label></p>
+		<div data-col="1/2">
+			<h3>Output and progress</h3>
+
+			<label>Current output</label>
+			<output>72%</output>
+
+			<label>Progress</label>
+			<progress value="72" max="100">72%</progress>
+
+			<label>Meter</label>
+			<meter min="0" max="100" low="30" high="80" optimum="90" value="72">72%</meter>
 		</div>
 	</span>
 
 <!-- code -------------------------------------------------------- -->
-<pre><code>&#x3C;!-- select and option --&#x3E;
-&#x3C;select&#x3E;
-&#x9;&#x3C;option disabled selected&#x3E;Select an option&#x3C;/option&#x3E;
-&#x9;&#x3C;option&#x3E;Option One&#x3C;/option&#x3E;
-&#x3C;/select&#x3E;
+<pre><code>&#x3C;label&#x3E;Search&#x3C;/label&#x3E;
+&#x3C;input type=&#x22;search&#x22; placeholder=&#x22;Search the document&#x22;&#x3E;
 
-&#x3C;!-- checkbox --&#x3E;
-&#x3C;input type=&#x22;checkbox&#x22; id=&#x22;checkbox-1&#x22;&#x3E; &#x3C;label for=&#x22;checkbox-1&#x22;&#x3E;Checkbox 1&#x3C;/label&#x3E;
+&#x3C;label&#x3E;Date&#x3C;/label&#x3E;
+&#x3C;input type=&#x22;date&#x22;&#x3E;
 
-&#x3C;!-- radio --&#x3E;
-&#x3C;input type=&#x22;radio&#x22; name=&#x22;radio&#x22; id=&#x22;radio-1&#x22;&#x3E; &#x3C;label for=&#x22;radio-1&#x22;&#x3E;Radio 1&#x3C;/label&#x3E;&#x3C;br&#x3E;&#x3C;input type=&#x22;radio&#x22; name=&#x22;radio&#x22; id=&#x22;radio-2&#x22;&#x3E; &#x3C;label for=&#x22;radio-2&#x22;&#x3E;Radio 2&#x3C;/label&#x3E;
+&#x3C;label&#x3E;Progress&#x3C;/label&#x3E;
+&#x3C;progress value=&#x22;72&#x22; max=&#x22;100&#x22;&#x3E;72%&#x3C;/progress&#x3E;
+
+&#x3C;label&#x3E;Meter&#x3C;/label&#x3E;
+&#x3C;meter min=&#x22;0&#x22; max=&#x22;100&#x22; value=&#x22;72&#x22;&#x3E;72%&#x3C;/meter&#x3E;
+</code></pre>
+<!-- /code -----------------------------------------------------// -->
+
+	<hr>
+
+	<h3>Async AMP form states</h3>
+
+	<p>This example uses AMP form state attributes instead of broad success selectors, so submitting, success, and error messages appear without collapsing the rest of the form around them. The file field is included in the supported AMP pattern: a <code>POST</code> form with <code>action-xhr</code>.</p>
+
+	<form method="post" action-xhr="https://amp.dev/documentation/examples/api/echo-json/post/" target="_top">
+	<label>Name</label>
+	<input type="text" name="name" placeholder="Morgan" required>
+
+	<label>Email</label>
+	<input type="email" name="email" placeholder="morgan@example.com" required>
+
+	<label>Attachment</label>
+	<input type="file" name="attachment" no-verify>
+
+	<div submitting>
+		<p>Sending your message...</p>
+	</div>
+
+	<div submit-success>
+		<template type="amp-mustache">
+			<p>Thanks {{name}}. The success state is now scoped so the form stays in place.</p>
+		</template>
+	</div>
+
+	<div submit-error>
+		<template type="amp-mustache">
+			<p>{{message}}</p>
+		</template>
+	</div>
+
+	<input type="submit" value="Send message" data-primary>
+	</form>
+
+<!-- code -------------------------------------------------------- -->
+<pre><code>&#x3C;form method=&#x22;post&#x22; action-xhr=&#x22;https://amp.dev/documentation/examples/api/echo-json/post/&#x22; target=&#x22;_top&#x22;&#x3E;
+&#x9;&#x3C;label&#x3E;Name&#x3C;/label&#x3E;
+&#x9;&#x3C;input type=&#x22;text&#x22; name=&#x22;name&#x22; required&#x3E;
+&#x9;&#x3C;label&#x3E;Email&#x3C;/label&#x3E;
+&#x9;&#x3C;input type=&#x22;email&#x22; name=&#x22;email&#x22; required&#x3E;
+&#x9;&#x3C;label&#x3E;Attachment&#x3C;/label&#x3E;
+&#x9;&#x3C;input type=&#x22;file&#x22; name=&#x22;attachment&#x22; no-verify&#x3E;
+
+&#x9;&#x3C;div submitting&#x3E;
+&#x9;&#x9;&#x3C;p&#x3E;Sending your message...&#x3C;/p&#x3E;
+&#x9;&#x3C;/div&#x3E;
+
+&#x9;&#x3C;div submit-success&#x3E;
+&#x9;&#x9;&#x3C;template type=&#x22;amp-mustache&#x22;&#x3E;
+&#x9;&#x9;&#x9;&#x3C;p&#x3E;Thanks {{name}}.&#x3C;/p&#x3E;
+&#x9;&#x9;&#x3C;/template&#x3E;
+&#x9;&#x3C;/div&#x3E;
+
+&#x9;&#x3C;div submit-error&#x3E;
+&#x9;&#x9;&#x3C;template type=&#x22;amp-mustache&#x22;&#x3E;
+&#x9;&#x9;&#x9;&#x3C;p&#x3E;{{message}}&#x3C;/p&#x3E;
+&#x9;&#x9;&#x3C;/template&#x3E;
+&#x9;&#x3C;/div&#x3E;
+
+&#x9;&#x3C;input type=&#x22;submit&#x22; value=&#x22;Send message&#x22; data-primary&#x3E;
+&#x3C;/form&#x3E;
 </code></pre>
 <!-- /code -----------------------------------------------------// -->
 
