@@ -725,11 +725,10 @@ nav:not([class]) ul li ul,nav[data-xx] ul li ul{visibility:hidden;opacity:0;posi
 
 <!-- code -------------------------------------------------------- -->
 <pre><code>&#x3C;!-- inline element --&#x3E;
-&#x3C;b data-tt=&#x22;Tooltip&#x22;&#x3E;Tooltip&#x3C;/b&#x3E;
-
-&#x3C;!-- buttons --&#x3E;
-&#x3C;button data-primary data-tt=&#x22;Primary button with a tooltip&#x22;&#x3E;Primary button&#x3C;/button&#x3E;
-&#x3C;button data-tt=&#x22;Normal button with a tooltip&#x22;&#x3E;Normal button&#x3C;/button&#x3E;
+&#x3C;b data-tt=&#x22;Tooltip on a &#x3C;b&#x3E; tag&#x22;&#x3E;this&#x3C;/b&#x3E;
+&#x3C;code data-tt=&#x22;Tooltip on a &#x3C;code&#x3E; tag&#x22;&#x3E;this&#x3C;/code&#x3E;
+&#x3C;a href=&#x22;&#x22; data-tt=&#x22;Tooltip on an anchor tag&#x22;&#x3E;this&#x3C;/a&#x3E;
+&#x3C;sup data-tt=&#x22;Tooltip on a &#x3C;sup&#x3E; tag&#x22;&#x3E;this&#x3C;/sup&#x3E;
 </code></pre>
 <!-- /code -----------------------------------------------------// -->
 
@@ -761,7 +760,7 @@ nav:not([class]) ul li ul,nav[data-xx] ul li ul{visibility:hidden;opacity:0;posi
 &#x9;&#x3C;label&#x3E;Some Text&#x3C;/label&#x3E;
 &#x9;&#x3C;input type=&#x22;text&#x22; placeholder=&#x22;Type anything&#x22; required&#x3E;
 &#x9;&#x3C;span visible-when-invalid&#x3E;Enter some text before submitting.&#x3C;/span&#x3E;
-&#x9;&#x3C;button disabled data-tt=&#x22;Not disabled&#x22; data-dtt=&#x22;Disabled&#x22;&#x3E;Disabled button&#x3C;/button&#x3E;
+&#x9;&#x3C;button disabled data-primary data-m-full data-xx [disabled]=&#x22;disable&#x22; data-tt=&#x22;Not disabled&#x22; data-dtt=&#x22;Disabled button tooltip&#x22;&#x3E;Disabled button&#x3C;/button&#x3E;
 &#x3C;/form&#x3E;
 </code></pre>
 <!-- /code -----------------------------------------------------// -->
@@ -782,7 +781,7 @@ nav:not([class]) ul li ul,nav[data-xx] ul li ul{visibility:hidden;opacity:0;posi
 
 <!-- code -------------------------------------------------------- -->
 <pre><code>&#x3C;!-- anchor link tooltips with the data-att attribute --&#x3E;
-&#x3C;a data-att href=&#x22;https://cssamp.com&#x22;&#x3E;CSSAMP&#x3C;/a&#x3E;
+&#x3C;a data-att href=&#x22;https://github.com/morganmacarthur/CSSAMP&#x22;&#x3E;anchor link&#x3C;/a&#x3E;
 </code></pre>
 <!-- /code -----------------------------------------------------// -->
 
@@ -831,17 +830,29 @@ nav:not([class]) ul li ul,nav[data-xx] ul li ul{visibility:hidden;opacity:0;posi
 <!-- code -------------------------------------------------------- -->
 <pre><code>&#x3C;fieldset&#x3E;
 &#x9;&#x3C;legend&#x3E;Common controls&#x3C;/legend&#x3E;
-&#x9;&#x3C;label&#x3E;Username&#x3C;/label&#x3E;
-&#x9;&#x3C;input type=&#x22;text&#x22; placeholder=&#x22;username&#x22;&#x3E;
+&#x9;&#x3C;label&#x3E;Text Input&#x3C;/label&#x3E;
+&#x9;&#x3C;input type=&#x22;text&#x22; placeholder=&#x22;text&#x22;&#x3E;
 
-&#x9;&#x3C;label&#x3E;Comment&#x3C;/label&#x3E;
-&#x9;&#x3C;textarea placeholder=&#x22;comment&#x22;&#x3E;&#x3C;/textarea&#x3E;
+&#x9;&#x3C;label&#x3E;Text Area&#x3C;/label&#x3E;
+&#x9;&#x3C;textarea placeholder=&#x22;more text&#x22;&#x3E;&#x3C;/textarea&#x3E;
 
 &#x9;&#x3C;label&#x3E;Select&#x3C;/label&#x3E;
 &#x9;&#x3C;select&#x3E;
 &#x9;&#x9;&#x3C;option disabled selected&#x3E;Select an option&#x3C;/option&#x3E;
 &#x9;&#x9;&#x3C;option&#x3E;Option One&#x3C;/option&#x3E;
+&#x9;&#x9;&#x3C;option&#x3E;Option Two&#x3C;/option&#x3E;
+&#x9;&#x9;&#x3C;option&#x3E;Option Three&#x3C;/option&#x3E;
 &#x9;&#x3C;/select&#x3E;
+
+&#x9;&#x3C;span&#x3E;
+&#x9;&#x9;&#x3C;div data-col=&#x22;1/2&#x22; data-fx&#x3E;
+&#x9;&#x9;&#x9;&#x3C;p&#x3E;&#x3C;input type=&#x22;checkbox&#x22; id=&#x22;checkbox-1&#x22;&#x3E; &#x3C;label for=&#x22;checkbox-1&#x22;&#x3E;Checkbox 1&#x3C;/label&#x3E;&#x3C;br&#x3E;&#x3C;input type=&#x22;checkbox&#x22; id=&#x22;checkbox-2&#x22;&#x3E; &#x3C;label for=&#x22;checkbox-2&#x22;&#x3E;Checkbox 2&#x3C;/label&#x3E;&#x3C;/p&#x3E;
+&#x9;&#x9;&#x3C;/div&#x3E;
+
+&#x9;&#x9;&#x3C;div data-col=&#x22;1/2&#x22; data-fx&#x3E;
+&#x9;&#x9;&#x9;&#x3C;p&#x3E;&#x3C;input type=&#x22;radio&#x22; name=&#x22;radio&#x22; id=&#x22;radio-1&#x22;&#x3E; &#x3C;label for=&#x22;radio-1&#x22;&#x3E;Radio 1&#x3C;/label&#x3E;&#x3C;br&#x3E;&#x3C;input type=&#x22;radio&#x22; name=&#x22;radio&#x22; id=&#x22;radio-2&#x22;&#x3E; &#x3C;label for=&#x22;radio-2&#x22;&#x3E;Radio 2&#x3C;/label&#x3E;&#x3C;/p&#x3E;
+&#x9;&#x9;&#x3C;/div&#x3E;
+&#x9;&#x3C;/span&#x3E;
 &#x3C;/fieldset&#x3E;
 </code></pre>
 <!-- /code -----------------------------------------------------// -->
@@ -878,13 +889,16 @@ nav:not([class]) ul li ul,nav[data-xx] ul li ul{visibility:hidden;opacity:0;posi
 &#x3C;input type=&#x22;search&#x22; placeholder=&#x22;Search the document&#x22;&#x3E;
 
 &#x3C;label&#x3E;Date&#x3C;/label&#x3E;
-&#x3C;input type=&#x22;date&#x22;&#x3E;
+&#x3C;input type=&#x22;date&#x22; value=&#x22;2026-03-25&#x22;&#x3E;
+
+&#x3C;label&#x3E;Current output&#x3C;/label&#x3E;
+&#x3C;output&#x3E;72%&#x3C;/output&#x3E;
 
 &#x3C;label&#x3E;Progress&#x3C;/label&#x3E;
 &#x3C;progress value=&#x22;72&#x22; max=&#x22;100&#x22;&#x3E;72%&#x3C;/progress&#x3E;
 
 &#x3C;label&#x3E;Meter&#x3C;/label&#x3E;
-&#x3C;meter min=&#x22;0&#x22; max=&#x22;100&#x22; value=&#x22;72&#x22;&#x3E;72%&#x3C;/meter&#x3E;
+&#x3C;meter min=&#x22;0&#x22; max=&#x22;100&#x22; low=&#x22;30&#x22; high=&#x22;80&#x22; optimum=&#x22;90&#x22; value=&#x22;72&#x22;&#x3E;72%&#x3C;/meter&#x3E;
 </code></pre>
 <!-- /code -----------------------------------------------------// -->
 
@@ -926,9 +940,9 @@ nav:not([class]) ul li ul,nav[data-xx] ul li ul{visibility:hidden;opacity:0;posi
 <!-- code -------------------------------------------------------- -->
 <pre><code>&#x3C;form method=&#x22;post&#x22; action-xhr=&#x22;https://amp.dev/documentation/examples/api/echo-json/post/&#x22; target=&#x22;_top&#x22;&#x3E;
 &#x9;&#x3C;label&#x3E;Name&#x3C;/label&#x3E;
-&#x9;&#x3C;input type=&#x22;text&#x22; name=&#x22;name&#x22; required&#x3E;
+&#x9;&#x3C;input type=&#x22;text&#x22; name=&#x22;name&#x22; placeholder=&#x22;Morgan&#x22; required&#x3E;
 &#x9;&#x3C;label&#x3E;Email&#x3C;/label&#x3E;
-&#x9;&#x3C;input type=&#x22;email&#x22; name=&#x22;email&#x22; required&#x3E;
+&#x9;&#x3C;input type=&#x22;email&#x22; name=&#x22;email&#x22; placeholder=&#x22;morgan@example.com&#x22; required&#x3E;
 &#x9;&#x3C;label&#x3E;Attachment&#x3C;/label&#x3E;
 &#x9;&#x3C;input type=&#x22;file&#x22; name=&#x22;attachment&#x22; no-verify&#x3E;
 
@@ -938,7 +952,7 @@ nav:not([class]) ul li ul,nav[data-xx] ul li ul{visibility:hidden;opacity:0;posi
 
 &#x9;&#x3C;div submit-success&#x3E;
 &#x9;&#x9;&#x3C;template type=&#x22;amp-mustache&#x22;&#x3E;
-&#x9;&#x9;&#x9;&#x3C;p&#x3E;Thanks {{name}}.&#x3C;/p&#x3E;
+&#x9;&#x9;&#x9;&#x3C;p&#x3E;Thanks {{name}}. The success state is now scoped so the form stays in place.&#x3C;/p&#x3E;
 &#x9;&#x9;&#x3C;/template&#x3E;
 &#x9;&#x3C;/div&#x3E;
 
@@ -972,12 +986,12 @@ nav:not([class]) ul li ul,nav[data-xx] ul li ul{visibility:hidden;opacity:0;posi
 
 <!-- code -------------------------------------------------------- -->
 <pre><code>&#x3C;!-- inline code --&#x3E;
-&#x3C;code&#x3E;code&#x3C;/code&#x3E;
+&#x3C;code&#x3E;inline&#x3C;/code&#x3E;
 
 &#x3C;!-- pre code --&#x3E;
-&#x3C;pre&#x3E;&#x3C;code&#x3E;Code line 1
-Code line 2
-Code line 3&#x3C;/code&#x3E;&#x3C;/pre&#x3E;
+&#x3C;pre&#x3E;&#x3C;code&#x3E;if ( to_be || !to_be ) {
+  that = theQuestion;
+}&#x3C;/code&#x3E;&#x3C;/pre&#x3E;
 </code></pre>
 <!-- /code -----------------------------------------------------// -->
 
@@ -997,11 +1011,8 @@ Code line 3&#x3C;/code&#x3E;&#x3C;/pre&#x3E;
 
 <!-- code -------------------------------------------------------- -->
 <pre><code>&#x3C;blockquote&#x3E;
-&#x9;&#x3C;p&#x3E;Quote goes here.&#x3C;/p&#x3E;
-
-&#x9;&#x3C;p data-txt=&#x22;r&#x22;&#x3E;
-&#x9;&#x9;&#x3C;i&#x3E;- Said Someone&#x3C;/i&#x3E;
-&#x9;&#x3C;/p&#x3E;
+&#x9;&#x3C;p&#x3E;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam porttitor mauris.&#x3C;/p&#x3E;
+&#x9;&#x3C;p data-txt=&#x22;r&#x22;&#x3E;&#x3C;i&#x3E;- Lorem Ipsum&#x3C;/i&#x3E;&#x3C;/p&#x3E;
 &#x3C;/blockquote&#x3E;
 </code></pre>
 <!-- /code -----------------------------------------------------// -->
@@ -1134,13 +1145,19 @@ Code line 3&#x3C;/code&#x3E;&#x3C;/pre&#x3E;
 <!-- code -------------------------------------------------------- -->
 <pre><code>&#x3C;!-- no need for rows, span will act as both row and container --&#x3E;
 &#x3C;span&#x3E;
-&#x9;&#x3C;div data-col=&#x22;1/3&#x22;&#x3E;&#x3C;/div&#x3E;
-&#x9;&#x3C;div data-col=&#x22;2/3&#x22;&#x3E;&#x3C;/div&#x3E;
-
-&#x9;&#x3C;!-- new row --&#x3E;
-
-&#x9;&#x3C;div data-col=&#x22;1/2&#x22;&#x3E;&#x3C;/div&#x3E;
-&#x9;&#x3C;div data-col=&#x22;1/2&#x22;&#x3E;&#x3C;/div&#x3E;
+&#x9;&#x3C;div data-col=&#x22;1/12&#x22;&#x3E;&#x3C;div&#x3E;&#x3C;b&#x3E;1/12&#x3C;/b&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;
+&#x9;&#x3C;div data-col=&#x22;11/12&#x22;&#x3E;&#x3C;div&#x3E;&#x3C;b&#x3E;11/12&#x3C;/b&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;
+&#x9;&#x3C;div data-col=&#x22;1/6&#x22;&#x3E;&#x3C;div&#x3E;&#x3C;b&#x3E;2/12&#x3C;/b&#x3E; or &#x3C;b&#x3E;1/6&#x3C;/b&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;
+&#x9;&#x3C;div data-col=&#x22;5/6&#x22;&#x3E;&#x3C;div&#x3E;&#x3C;b&#x3E;10/12&#x3C;/b&#x3E; or &#x3C;b&#x3E;5/6&#x3C;/b&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;
+&#x9;&#x3C;div data-col=&#x22;1/4&#x22;&#x3E;&#x3C;div&#x3E;&#x3C;b&#x3E;3/12&#x3C;/b&#x3E; or &#x3C;b&#x3E;1/4&#x3C;/b&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;
+&#x9;&#x3C;div data-col=&#x22;3/4&#x22;&#x3E;&#x3C;div&#x3E;&#x3C;b&#x3E;9/12&#x3C;/b&#x3E; or &#x3C;b&#x3E;3/4&#x3C;/b&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;
+&#x9;&#x3C;div data-col=&#x22;1/3&#x22;&#x3E;&#x3C;div&#x3E;&#x3C;b&#x3E;4/12&#x3C;/b&#x3E; or &#x3C;b&#x3E;2/6&#x3C;/b&#x3E; or &#x3C;b&#x3E;1/3&#x3C;/b&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;
+&#x9;&#x3C;div data-col=&#x22;2/3&#x22;&#x3E;&#x3C;div&#x3E;&#x3C;b&#x3E;8/12&#x3C;/b&#x3E; or &#x3C;b&#x3E;2/3&#x3C;/b&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;
+&#x9;&#x3C;div data-col=&#x22;5/12&#x22;&#x3E;&#x3C;div&#x3E;&#x3C;b&#x3E;5/12&#x3C;/b&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;
+&#x9;&#x3C;div data-col=&#x22;7/12&#x22;&#x3E;&#x3C;div&#x3E;&#x3C;b&#x3E;7/12&#x3C;/b&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;
+&#x9;&#x3C;div data-col=&#x22;1/2&#x22;&#x3E;&#x3C;div&#x3E;&#x3C;b&#x3E;6/12&#x3C;/b&#x3E; or &#x3C;b&#x3E;3/6&#x3C;/b&#x3E; or &#x3C;b&#x3E;2/4&#x3C;/b&#x3E; or &#x3C;b&#x3E;1/2&#x3C;/b&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;
+&#x9;&#x3C;div data-col=&#x22;1/2&#x22;&#x3E;&#x3C;div&#x3E;&#x3C;b&#x3E;6/12&#x3C;/b&#x3E; or &#x3C;b&#x3E;3/6&#x3C;/b&#x3E; or &#x3C;b&#x3E;2/4&#x3C;/b&#x3E; or &#x3C;b&#x3E;1/2&#x3C;/b&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;
+&#x9;&#x3C;div data-col=&#x22;1/1&#x22;&#x3E;&#x3C;div&#x3E;&#x3C;b&#x3E;1/1&#x3C;/b&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;
 &#x3C;/span&#x3E;
 </code></pre>
 <!-- /code -----------------------------------------------------// -->
@@ -1165,8 +1182,10 @@ Code line 3&#x3C;/code&#x3E;&#x3C;/pre&#x3E;
 <!-- code -------------------------------------------------------- -->
 <pre><code>&#x3C;!-- adding data-fx to the data-col will retain width on mobile --&#x3E;
 &#x3C;span&#x3E;
-&#x9;&#x3C;div data-fx data-col=&#x22;5/12&#x22;&#x3E;&#x3C;/div&#x3E;
-&#x9;&#x3C;div data-fx data-col=&#x22;7/12&#x22;&#x3E;&#x3C;/div&#x3E;
+&#x9;&#x3C;div data-fx data-col=&#x22;5/12&#x22;&#x3E;&#x3C;div&#x3E;&#x3C;b&#x3E;5/12&#x3C;/b&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;
+&#x9;&#x3C;div data-fx data-col=&#x22;7/12&#x22;&#x3E;&#x3C;div&#x3E;&#x3C;b&#x3E;7/12&#x3C;/b&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;
+&#x9;&#x3C;div data-fx data-col=&#x22;1/2&#x22;&#x3E;&#x3C;div&#x3E;&#x3C;b&#x3E;1/2&#x3C;/b&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;
+&#x9;&#x3C;div data-fx data-col=&#x22;1/2&#x22;&#x3E;&#x3C;div&#x3E;&#x3C;b&#x3E;1/2&#x3C;/b&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;
 &#x3C;/span&#x3E;
 </code></pre>
 <!-- /code -----------------------------------------------------// -->
@@ -1198,13 +1217,13 @@ Code line 3&#x3C;/code&#x3E;&#x3C;/pre&#x3E;
 <!-- code -------------------------------------------------------- -->
 <pre><code>&#x3C;!-- you can nest a span inside a col --&#x3E;
 &#x3C;span&#x3E;
-&#x9;&#x3C;div data-col=&#x22;1/2&#x22;&#x3E;&#x3C;/div&#x3E;
+&#x9;&#x3C;div data-col=&#x22;1/2&#x22;&#x3E;&#x3C;div&#x3E;&#x3C;b&#x3E;1/2&#x3C;/b&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;
 &#x9;&#x3C;div data-col=&#x22;1/2&#x22;&#x3E;
 &#x9;&#x9;&#x3C;!-- nested grid --&#x3E;
 &#x9;&#x9;&#x3C;span&#x3E;
-&#x9;&#x9;&#x9;&#x3C;div data-col=&#x22;1/1&#x22;&#x3E;&#x3C;/div&#x3E;
-&#x9;&#x9;&#x9;&#x3C;div data-col=&#x22;1/2&#x22;&#x3E;&#x3C;/div&#x3E;
-&#x9;&#x9;&#x9;&#x3C;div data-col=&#x22;1/2&#x22;&#x3E;&#x3C;/div&#x3E;
+&#x9;&#x9;&#x9;&#x3C;div data-col=&#x22;1/1&#x22;&#x3E;&#x3C;div&#x3E;&#x3C;b&#x3E;1/1&#x3C;/b&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;
+&#x9;&#x9;&#x9;&#x3C;div data-col=&#x22;1/2&#x22;&#x3E;&#x3C;div&#x3E;&#x3C;b&#x3E;1/2&#x3C;/b&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;
+&#x9;&#x9;&#x9;&#x3C;div data-col=&#x22;1/2&#x22;&#x3E;&#x3C;div&#x3E;&#x3C;b&#x3E;1/2&#x3C;/b&#x3E;&#x3C;/div&#x3E;&#x3C;/div&#x3E;
 &#x9;&#x9;&#x3C;/span&#x3E;
 &#x9;&#x3C;/div&#x3E;
 &#x3C;/span&#x3E;
@@ -1279,26 +1298,28 @@ Code line 3&#x3C;/code&#x3E;&#x3C;/pre&#x3E;
 	</span>
 
 <!-- code -------------------------------------------------------- -->
-<pre><code>&#x3C;!-- figure element --&#x3E;
-&#x3C;figure&#x3E;
-&#x9;&#x3C;p&#x3E;Your content&#x3C;/p&#x3E;
-&#x3C;/figure&#x3E;
-
-&#x3C;!-- card within a grid --&#x3E;
-&#x3C;span&#x3E;
-&#x9;&#x3C;div data-col=&#x22;1/2&#x22;&#x3E;
+<pre><code>&#x3C;span&#x3E;
+&#x9;&#x3C;div data-col=&#x22;1/3&#x22;&#x3E;
 &#x9;&#x9;&#x3C;figure&#x3E;
-&#x9;&#x9;&#x9;&#x3C;h5&#x3E;Card title&#x3C;/h5&#x3E;
+&#x9;&#x9;&#x9;&#x3C;h5&#x3E;Card one&#x3C;/h5&#x3E;
 &#x9;&#x9;&#x9;&#x3C;hr&#x3E;
-&#x9;&#x9;&#x9;&#x3C;p&#x3E;Your content here&#x3C;/p&#x3E;
+&#x9;&#x9;&#x9;&#x3C;p&#x3E;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&#x3C;/p&#x3E;
 &#x9;&#x9;&#x3C;/figure&#x3E;
 &#x9;&#x3C;/div&#x3E;
 
-&#x9;&#x3C;div data-col=&#x22;1/2&#x22;&#x3E;
+&#x9;&#x3C;div data-col=&#x22;1/3&#x22;&#x3E;
 &#x9;&#x9;&#x3C;figure&#x3E;
-&#x9;&#x9;&#x9;&#x3C;h5&#x3E;Card title&#x3C;/h5&#x3E;
+&#x9;&#x9;&#x9;&#x3C;h5&#x3E;Card two&#x3C;/h5&#x3E;
 &#x9;&#x9;&#x9;&#x3C;hr&#x3E;
-&#x9;&#x9;&#x9;&#x3C;p&#x3E;Your content here&#x3C;/p&#x3E;
+&#x9;&#x9;&#x9;&#x3C;p&#x3E;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.&#x3C;/p&#x3E;
+&#x9;&#x9;&#x3C;/figure&#x3E;
+&#x9;&#x3C;/div&#x3E;
+
+&#x9;&#x3C;div data-col=&#x22;1/3&#x22;&#x3E;
+&#x9;&#x9;&#x3C;figure&#x3E;
+&#x9;&#x9;&#x9;&#x3C;h5&#x3E;Card three&#x3C;/h5&#x3E;
+&#x9;&#x9;&#x9;&#x3C;hr&#x3E;
+&#x9;&#x9;&#x9;&#x3C;p&#x3E;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.&#x3C;/p&#x3E;
 &#x9;&#x9;&#x3C;/figure&#x3E;
 &#x9;&#x3C;/div&#x3E;
 &#x3C;/span&#x3E;
@@ -1320,12 +1341,10 @@ Code line 3&#x3C;/code&#x3E;&#x3C;/pre&#x3E;
 <!-- code -------------------------------------------------------- -->
 <pre><code>&#x3C;!-- image at the top --&#x3E;
 &#x3C;figure&#x3E;
-&#x9;&#x3C;amp-img data-xx src=&#x22;rainbow.jpg&#x22; width=&#x22;640&#x22; height=&#x22;427&#x22; layout=&#x22;responsive&#x22;&#x3E;
+&#x9;&#x3C;amp-img data-xx src=&#x22;https://uimgs.com/640x427/rainbow.jpg&#x22; width=&#x22;640&#x22; height=&#x22;427&#x22; layout=&#x22;responsive&#x22;&#x3E;
 &#x9;&#x3C;/amp-img&#x3E;
-
-&#x9;&#x3C;h5&#x3E;Title&#x3C;/h5&#x3E;
-
-&#x9;&#x3C;p&#x3E;Content goes here&#x3C;/p&#x3E;
+&#x9;&#x3C;h5&#x3E;Top image&#x3C;/h5&#x3E;
+&#x9;&#x3C;p&#x3E;Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.&#x3C;/p&#x3E;
 &#x3C;/figure&#x3E;
 </code></pre>
 <!-- /code -----------------------------------------------------// -->
@@ -1342,12 +1361,10 @@ Code line 3&#x3C;/code&#x3E;&#x3C;/pre&#x3E;
 <!-- code -------------------------------------------------------- -->
 <pre><code>&#x3C;!-- image in the middle --&#x3E;
 &#x3C;figure&#x3E;
-&#x9;&#x3C;h5&#x3E;Title&#x3C;/h5&#x3E;
-
-&#x9;&#x3C;amp-img data-xx src=&#x22;rainbow.jpg&#x22; width=&#x22;640&#x22; height=&#x22;427&#x22; layout=&#x22;responsive&#x22;&#x3E;
+&#x9;&#x3C;h5&#x3E;Middle image&#x3C;/h5&#x3E;
+&#x9;&#x3C;amp-img data-xx src=&#x22;https://uimgs.com/640x427/rainbow.jpg&#x22; width=&#x22;640&#x22; height=&#x22;427&#x22; layout=&#x22;responsive&#x22;&#x3E;
 &#x9;&#x3C;/amp-img&#x3E;
-
-&#x9;&#x3C;p&#x3E;Content goes here&#x3C;/p&#x3E;
+&#x9;&#x3C;p&#x3E;Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.&#x3C;/p&#x3E;
 &#x3C;/figure&#x3E;</code></pre>
 <!-- /code -----------------------------------------------------// -->
 
@@ -1363,11 +1380,9 @@ Code line 3&#x3C;/code&#x3E;&#x3C;/pre&#x3E;
 <!-- code -------------------------------------------------------- -->
 <pre><code>&#x3C;!-- image at the bottom --&#x3E;
 &#x3C;figure&#x3E;
-&#x9;&#x3C;h5&#x3E;Title&#x3C;/h5&#x3E;
-
-&#x9;&#x3C;p&#x3E;Content goes here&#x3C;/p&#x3E;
-
-&#x9;&#x3C;amp-img data-xx src=&#x22;rainbow.jpg&#x22; width=&#x22;640&#x22; height=&#x22;427&#x22; layout=&#x22;responsive&#x22;&#x3E;
+&#x9;&#x3C;h5&#x3E;Bottom image&#x3C;/h5&#x3E;
+&#x9;&#x3C;p&#x3E;Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.&#x3C;/p&#x3E;
+&#x9;&#x3C;amp-img data-xx src=&#x22;https://uimgs.com/640x427/rainbow.jpg&#x22; width=&#x22;640&#x22; height=&#x22;427&#x22; layout=&#x22;responsive&#x22;&#x3E;
 &#x9;&#x3C;/amp-img&#x3E;
 &#x3C;/figure&#x3E;
 </code></pre>
