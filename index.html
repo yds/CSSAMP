@@ -313,9 +313,9 @@ nav:not([class]) ul li ul,nav[data-xx] ul li ul{visibility:hidden;opacity:0;posi
 		</div>
 
 		<div data-col="3/4">
-			<p>Sometimes you want to quickly set up a simple site or application. You don't want it to look like a Word&trade; doc but you also don't want/need a massive framework such as <a data-att href="http://getbootstrap.com" target="_blank">Bootstrap</a> or <a data-att href="http://foundation.zurb.com" target="_blank">Foundation</a> or <a data-att href="http://materializecss.com" target="_blank">Materialize</a>.</p>
+			<p>Sometimes you want to quickly set up a simple site or application. You don't want it to look like a Word&trade; doc but you also don't want or need a massive framework such as <a data-att href="https://getbootstrap.com" target="_blank">Bootstrap</a>, <a data-att href="https://get.foundation" target="_blank">Foundation</a>, or <a data-att href="https://materializecss.com" target="_blank">Materialize</a>.</p>
 
-			<p>So in a similar vein as <a data-att href="http://purecss.io" target="_blank">Pure</a> and <a data-att href="http://getskeleton.com" target="_blank">Skeleton</a>, CSS&#8203;AMP aims to provide a minimal CSS framework that requires minimal setup.</p>
+			<p>In a similar vein to <a data-att href="https://purecss.io" target="_blank">Pure</a> and <a data-att href="https://getskeleton.com" target="_blank">Skeleton</a>, CSS&#8203;AMP aims to provide a minimal CSS framework that requires minimal setup.</p>
 
 			<p>CSS&#8203;AMP takes that minimal approach one step further by staying completely classless. Default styles are applied <em>only</em> to elements without classes, which keeps custom components and one-off modules easy to opt out of. If you want to keep the library styling on a tagged element, add the <code>data-xx</code> attribute.</p>
 		</div>
@@ -355,6 +355,20 @@ nav:not([class]) ul li ul,nav[data-xx] ul li ul{visibility:hidden;opacity:0;posi
 	<div><h2>Change log</h2></div>
 
 	<span>
+		<div data-col="1/2">
+			<h3>v1.4.1</h3>
+		</div>
+
+		<div data-col="1/2">
+			<ul>
+				<li>Updated installation guidance to reflect the current CSS source and embedded-page workflows</li>
+				<li>Replaced the retired banner image host in the source stylesheet</li>
+				<li>Cleaned a few remaining documentation links and wording inconsistencies</li>
+			</ul>
+		</div>
+
+		<hr>
+
 		<div data-col="1/2">
 			<h3>v1.4.0</h3>
 		</div>
@@ -464,13 +478,42 @@ nav:not([class]) ul li ul,nav[data-xx] ul li ul{visibility:hidden;opacity:0;posi
 
 	<span>
 		<div data-col="1/2">
-			<p>Download this page from here until I get<a data-att href="https://github.com/morganmacarthur/CSSAMP" target="_blank">Github</a> situated.</p>
+			<h3>Option 1: Use the CSS source</h3>
 
-			<p>Included in the page are the embedded SVG icon files from <a data-att href="https://design.google.com/icons" target="_blank">Google</a>, and the compiled CSS file.</p>
+			<p>Use <code>cssamp.css</code> as the maintainable source stylesheet. For an AMP page, copy its contents into your document's single <code>&lt;style amp-custom&gt;</code> block, then include whichever AMP component scripts your page needs.</p>
 
+			<p>This is the better option if you want the CSSAMP styling but plan to write your own page structure or trim the framework down to a smaller set of patterns.</p>
 		</div>
 
+		<div data-col="1/2">
+			<h3>Option 2: Start from the embedded page</h3>
+
+			<p>If you want a complete reference, start from <code>index.html</code>. It already contains the AMP boilerplate, inline stylesheet, embedded icons, and the demo markup used throughout the docs.</p>
+
+			<p>This is the better option if you want to copy the whole page, then remove the sections and examples you do not need.</p>
+		</div>
 	</span>
+
+	<hr>
+
+	<p>The files are intentionally paired: <code>cssamp.css</code> is the clean stylesheet source, while <code>index.html</code> shows how that CSS is embedded inside a complete AMP document.</p>
+
+<!-- code -------------------------------------------------------- -->
+<pre><code>&#x3C;!-- option 1: paste cssamp.css into your AMP page --&#x3E;
+&#x3C;style amp-custom&#x3E;
+  /* paste CSSAMP here */
+&#x3C;/style&#x3E;
+
+&#x3C;!-- option 2: start from index.html and trim it down --&#x3E;
+&#x3C;!doctype html&#x3E;
+&#x3C;html amp lang=&#x22;en&#x22;&#x3E;
+  &#x3C;head&#x3E;
+    &#x3C;script async src=&#x22;https://cdn.ampproject.org/v0.js&#x22;&#x3E;&#x3C;/script&#x3E;
+    &#x3C;style amp-custom&#x3E;...&#x3C;/style&#x3E;
+  &#x3C;/head&#x3E;
+&#x3C;/html&#x3E;
+</code></pre>
+<!-- /code -----------------------------------------------------// -->
 
 </section>
 
@@ -1239,7 +1282,7 @@ nav:not([class]) ul li ul,nav[data-xx] ul li ul{visibility:hidden;opacity:0;posi
 		<div data-col="1/3">
 			<h4>Grids with horizontal rule</h4>
 
-			<p>The examples you are looking at now are all <code>col</code>s within a <code>span</code> separated by <code>hr</code>s.</p>
+			<p>The examples here are all columns inside a <code>span</code>, separated with <code>hr</code> elements.</p>
 		</div>
 
 		<div data-col="2/3">
@@ -1496,7 +1539,7 @@ nav:not([class]) ul li ul,nav[data-xx] ul li ul{visibility:hidden;opacity:0;posi
 &#x3C;footer&#x3E;
 &#x9;&#x3C;span&#x3E;
 &#x9;&#x9;&#x3C;div data-col=&#x22;1/2&#x22;&#x3E;
-&#x9;&#x9;&#x9;&#x3C;p&#x3E;Created by &#x3C;a data-att href=&#x22;http://www.morganmacarthur.com&#x22;&#x3E;Morgan MacArthur&#x3C;/a&#x3E;&#x3C;/p&#x3E;
+&#x9;&#x9;&#x9;&#x3C;p&#x3E;Created by &#x3C;a data-att href=&#x22;https://www.morganmacarthur.com&#x22;&#x3E;Morgan MacArthur&#x3C;/a&#x3E;&#x3C;/p&#x3E;
 &#x9;&#x9;&#x3C;/div&#x3E;
 
 &#x9;&#x9;&#x3C;div data-col=&#x22;1/2&#x22; data-txt=&#x22;r&#x22;&#x3E;
